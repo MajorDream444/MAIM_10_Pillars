@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "name": "maim-10-pillars",
+  "buildCommand": "",
+  "outputDirectory": "web/portal",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/web/portal/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 30
+    }
+  }
+}

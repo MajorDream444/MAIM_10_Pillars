@@ -739,13 +739,11 @@ async function sendMessage() {
       .slice(-10) // keep last 10 for context
       .map(m => ({role: m.role, content: m.content}));
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: tier.systemPrompt,
+        token: currentUser,
         messages: apiMessages
       })
     });
@@ -753,22 +751,24 @@ async function sendMessage() {
     const data = await response.json();
     removeTyping();
 
-    if(data.content && data.content[0]) {
-      const reply = data.content[0].text;
+    if(response.status === 429) {
+      addMessage('assistant', '⚠️ Daily query limit reached. <a href="https://majordream.gumroad.com" target="_blank" style="color:var(--gold)">Upgrade your tier</a> for unlimited access.');
+    } else if(data.message) {
+      const reply = data.message;
       addMessage('assistant', reply);
 
       // Track query usage
       queriesUsed++;
       localStorage.setItem('maim_queries_'+currentUser, queriesUsed.toString());
 
-      // Update counter
+      // Update counter from server response or local count
       if(tier.queryLimit) {
-        const left = Math.max(0, tier.queryLimit - queriesUsed);
+        const left = data.remaining !== undefined ? data.remaining : Math.max(0, tier.queryLimit - queriesUsed);
         document.getElementById('query-counter').innerHTML =
           `<strong>${left}</strong> queries remaining today`;
       }
     } else {
-      addMessage('assistant', 'Something went wrong. Please try again.');
+      addMessage('assistant', data.error || 'Something went wrong. Please try again.');
     }
   } catch(err) {
     removeTyping();
