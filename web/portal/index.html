@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M.A.I.M. — Access Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#08111f;--ocean:#0d1e35;--gold:#f0a500;--gold-lt:#fdc84b;
+  --emerald:#0e7a4e;--em-lt:#27ae60;--white:#fafaf8;
+  --muted:rgba(250,250,248,0.55);--light:#c8d8ea;--dark2:#0d1e35;
+  --border:rgba(240,165,0,0.18);--border-soft:rgba(250,250,248,0.08);
+  --purple:#7b5ea7;--teal:#0099cc;
+}
+html,body{height:100%;background:var(--navy);color:var(--white);
+  font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+input,textarea{font-family:'DM Sans',sans-serif}
+
+/* ── PARTICLES BG ──────────────────────────────────────────────── */
+#canvas-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.35}
+
+/* ── VIEWS ─────────────────────────────────────────────────────── */
+.view{position:relative;z-index:1;min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem}
+.view.active{display:flex}
+
+/* ── LOGIN VIEW ─────────────────────────────────────────────────── */
+.login-card{
+  width:100%;max-width:460px;
+  background:rgba(13,30,53,0.85);
+  border:0.5px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem 2rem;
+  backdrop-filter:blur(20px);
+  animation:fadeUp 0.6s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.login-badge{
+  font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:8px;
+  justify-content:center;
+}
+.login-badge::before,.login-badge::after{content:'';width:20px;height:1px;background:var(--gold);opacity:0.6}
+
+.login-card h1{font-size:1.9rem;font-weight:800;text-align:center;margin-bottom:0.3rem;letter-spacing:-0.02em}
+.login-card h1 span{color:var(--gold)}
+.login-card p{text-align:center;color:var(--muted);font-size:0.875rem;font-weight:300;margin-bottom:2rem}
+
+.field-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:block}
+
+.token-input{
+  width:100%;padding:0.85rem 1rem;
+  background:rgba(255,255,255,0.04);
+  border:0.5px solid var(--border-soft);
+  border-radius:8px;color:var(--white);font-size:0.9rem;
+  transition:border-color 0.2s;outline:none;
+  letter-spacing:0.05em;
+}
+.token-input:focus{border-color:var(--gold)}
+.token-input::placeholder{color:rgba(250,250,248,0.25)}
+
+.login-btn{
+  width:100%;margin-top:1.2rem;padding:0.9rem;
+  background:var(--gold);color:var(--navy);
+  border:none;border-radius:8px;
+  font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;
+  transition:background 0.2s,transform 0.1s;
+}
+.login-btn:hover{background:var(--gold-lt)}
+.login-btn:active{transform:scale(0.98)}
+.login-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+.login-error{
+  margin-top:0.8rem;padding:0.7rem 1rem;
+  background:rgba(192,57,43,0.15);border:0.5px solid rgba(192,57,43,0.4);
+  border-radius:6px;font-size:0.8rem;color:#e57373;display:none;
+}
+.login-error.show{display:block}
+
+.demo-row{display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
+.demo-btn{
+  flex:1;min-width:80px;padding:0.5rem 0.4rem;
+  background:transparent;border:0.5px solid var(--border-soft);
+  border-radius:6px;font-size:0.72rem;font-weight:500;color:var(--muted);
+  transition:all 0.15s;text-align:center;
+}
+.demo-btn:hover{border-color:var(--border);color:var(--white);background:rgba(255,255,255,0.03)}
+.demo-label{font-size:10px;color:var(--muted);text-align:center;margin-top:0.8rem;font-weight:300}
+
+.divider{height:0.5px;background:var(--border-soft);margin:1.5rem 0}
+
+/* ── DASHBOARD VIEW ─────────────────────────────────────────────── */
+.dash-wrap{width:100%;max-width:860px;animation:fadeUp 0.5s ease both}
+
+.dash-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;
+  background:rgba(13,30,53,0.8);border:0.5px solid var(--border-soft);
+  border-radius:12px;margin-bottom:1.5rem;backdrop-filter:blur(12px);flex-wrap:wrap;gap:1rem;
+}
+.dash-logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;letter-spacing:0.1em;color:var(--gold)}
+.dash-user{display:flex;align-items:center;gap:0.75rem}
+.tier-chip{
+  font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+}
+.tier-chip.scroll{background:rgba(250,250,248,0.08);color:var(--muted);border:0.5px solid var(--border-soft)}
+.tier-chip.emerald{background:rgba(39,174,96,0.15);color:var(--em-lt);border:0.5px solid rgba(39,174,96,0.3)}
+.tier-chip.vault{background:rgba(240,165,0,0.15);color:var(--gold-lt);border:0.5px solid var(--border)}
+.logout-btn{font-size:11px;color:var(--muted);background:none;border:none;padding:4px 8px;transition:color 0.15s}
+.logout-btn:hover{color:var(--white)}
+
+.dash-welcome{margin-bottom:1.5rem}
+.dash-welcome h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.02em}
+.dash-welcome h2 em{font-style:normal;color:var(--gold)}
+.dash-welcome p{color:var(--muted);font-size:0.9rem;font-weight:300}
+
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-bottom:1.5rem}
+
+.resource-card{
+  padding:1.2rem;background:rgba(13,30,53,0.7);
+  border:0.5px solid var(--border-soft);border-radius:10px;
+  transition:border-color 0.2s,background 0.2s;
+  backdrop-filter:blur(8px);
+}
+.resource-card:hover{border-color:var(--border);background:rgba(13,30,53,0.9)}
+.resource-card.locked{opacity:0.45;cursor:default}
+
+.rc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.8rem;font-size:15px}
+.rc-icon.gold{background:rgba(240,165,0,0.12)}
+.rc-icon.em{background:rgba(39,174,96,0.12)}
+.rc-icon.pu{background:rgba(123,94,167,0.12)}
+.rc-icon.lo{background:rgba(0,153,204,0.12)}
+
+.resource-card h4{font-size:0.82rem;font-weight:700;margin-bottom:0.25rem}
+.resource-card p{font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.5}
+.lock-label{font-size:10px;color:rgba(250,250,248,0.25);margin-top:0.5rem;letter-spacing:0.05em}
+
+.agent-section{
+  background:rgba(13,30,53,0.7);border:0.5px solid var(--border);
+  border-radius:12px;overflow:hidden;backdrop-filter:blur(12px);
+}
+.agent-header{
+  padding:1rem 1.5rem;border-bottom:0.5px solid var(--border-soft);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;
+}
+.agent-header h3{font-size:1rem;font-weight:700}
+.agent-header h3 span{color:var(--gold)}
+.query-counter{font-size:11px;color:var(--muted);font-weight:300}
+.query-counter strong{color:var(--em-lt)}
+
+/* ── CHAT VIEW ─────────────────────────────────────────────────── */
+.chat-messages{
+  height:340px;overflow-y:auto;padding:1.2rem 1.5rem;
+  display:flex;flex-direction:column;gap:0.75rem;
+  scrollbar-width:thin;scrollbar-color:rgba(240,165,0,0.2) transparent;
+}
+
+.msg{max-width:85%;padding:0.75rem 1rem;border-radius:10px;font-size:0.875rem;line-height:1.6;animation:fadeUp 0.25s ease both}
+.msg.user{
+  align-self:flex-end;
+  background:rgba(240,165,0,0.12);border:0.5px solid var(--border);
+  color:var(--white);border-bottom-right-radius:3px;
+}
+.msg.assistant{
+  align-self:flex-start;
+  background:rgba(13,30,53,0.9);border:0.5px solid var(--border-soft);
+  color:var(--light);border-bottom-left-radius:3px;
+}
+.msg.system{
+  align-self:center;
+  background:rgba(39,174,96,0.08);border:0.5px solid rgba(39,174,96,0.2);
+  color:rgba(39,174,96,0.8);font-size:0.78rem;text-align:center;
+  border-radius:20px;padding:0.4rem 1rem;
+}
+.msg.typing{
+  align-self:flex-start;
+  background:rgba(13,30,53,0.9);border:0.5px solid var(--border-soft);
+  padding:0.75rem 1rem;border-bottom-left-radius:3px;
+}
+.typing-dots{display:flex;gap:4px;align-items:center}
+.typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dot-pulse 1.4s infinite ease-in-out both}
+.typing-dots span:nth-child(2){animation-delay:0.2s}
+.typing-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes dot-pulse{0%,80%,100%{transform:scale(0.6);opacity:0.4}40%{transform:scale(1);opacity:1}}
+
+.major-move{
+  border-left:2px solid var(--gold);padding:0.6rem 0.8rem;
+  margin-top:0.5rem;background:rgba(240,165,0,0.06);border-radius:0 6px 6px 0;
+  font-size:0.82rem;color:var(--gold-lt);font-style:italic;
+}
+
+.chat-input-row{
+  padding:1rem 1.5rem;border-top:0.5px solid var(--border-soft);
+  display:flex;gap:0.75rem;align-items:flex-end;
+}
+.chat-textarea{
+  flex:1;resize:none;background:rgba(255,255,255,0.04);
+  border:0.5px solid var(--border-soft);border-radius:8px;
+  color:var(--white);padding:0.75rem 1rem;font-size:0.875rem;
+  min-height:44px;max-height:120px;outline:none;transition:border-color 0.2s;
+  line-height:1.5;
+}
+.chat-textarea:focus{border-color:var(--gold)}
+.chat-textarea::placeholder{color:rgba(250,250,248,0.25)}
+
+.send-btn{
+  width:44px;height:44px;border-radius:8px;
+  background:var(--gold);border:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s,transform 0.1s;flex-shrink:0;
+}
+.send-btn:hover{background:var(--gold-lt)}
+.send-btn:active{transform:scale(0.95)}
+.send-btn:disabled{opacity:0.4;cursor:not-allowed}
+.send-btn svg{width:18px;height:18px;fill:var(--navy)}
+
+.upgrade-nudge{
+  margin:0 1.5rem 1rem;padding:0.75rem 1rem;
+  background:rgba(240,165,0,0.06);border:0.5px solid var(--border);
+  border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+.upgrade-nudge p{font-size:0.78rem;color:var(--muted);font-weight:300;margin:0}
+.upgrade-nudge p strong{color:var(--gold-lt)}
+.upgrade-link{
+  font-size:0.75rem;font-family:'Syne',sans-serif;font-weight:700;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--gold);
+  background:none;border:0.5px solid var(--border);border-radius:5px;
+  padding:0.4rem 0.9rem;text-decoration:none;transition:all 0.15s;white-space:nowrap;
+}
+.upgrade-link:hover{background:var(--gold);color:var(--navy)}
+
+/* ── PILLAR QUICK-ACCESS PILLS ──────────────────────────────────── */
+.pillar-pills{
+  display:flex;gap:0.4rem;flex-wrap:wrap;
+  padding:0 1.5rem 1rem;
+}
+.pillar-pill{
+  font-size:11px;padding:4px 10px;border-radius:20px;
+  border:0.5px solid var(--border-soft);color:var(--muted);
+  background:none;transition:all 0.15s;white-space:nowrap;
+}
+.pillar-pill:hover:not(.locked-pill){border-color:var(--border);color:var(--white)}
+.pillar-pill.active-pill{border-color:var(--gold);color:var(--gold-lt);background:rgba(240,165,0,0.08)}
+.pillar-pill.locked-pill{opacity:0.3;cursor:default}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────── */
+@media(max-width:600px){
+  .dash-header{padding:0.75rem 1rem}
+  .agent-header{padding:0.75rem 1rem}
+  .chat-messages{height:260px;padding:1rem}
+  .chat-input-row{padding:0.75rem 1rem}
+  .pillar-pills{padding:0 1rem 0.75rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="canvas-bg"></canvas>
+
+<!-- ── LOGIN VIEW ──────────────────────────────────────────────── -->
+<div id="view-login" class="view active">
+  <div class="login-card">
+    <div class="login-badge">M . A . I . M</div>
+    <h1>Access the <span>Vault</span></h1>
+    <p>Enter the access token from your purchase email to unlock your tier.</p>
+
+    <label class="field-label" for="token-input">Your Access Token</label>
+    <input id="token-input" class="token-input" type="text"
+      placeholder="SCROLL-xxxx  /  EMERALD-xxxx  /  VAULT-xxxx" autocomplete="off" spellcheck="false"/>
+
+    <div id="login-error" class="login-error">Invalid token. Check your purchase email or contact support.</div>
+
+    <button id="login-btn" class="login-btn">Enter the Vault →</button>
+
+    <div class="divider"></div>
+    <div class="demo-label">Demo — try a tier to preview:</div>
+    <div class="demo-row">
+      <button class="demo-btn" onclick="demoLogin('SCROLL')">📜 Pillar Scroll</button>
+      <button class="demo-btn" onclick="demoLogin('EMERALD')">💎 Emerald</button>
+      <button class="demo-btn" onclick="demoLogin('VAULT')">🔓 Dynasty Vault</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD VIEW ─────────────────────────────────────────── -->
+<div id="view-dash" class="view">
+  <div class="dash-wrap">
+
+    <div class="dash-header">
+      <div class="dash-logo">M.A.I.M.</div>
+      <div class="dash-user">
+        <span id="dash-email" style="font-size:0.8rem;color:var(--muted)"></span>
+        <span id="tier-chip" class="tier-chip"></span>
+        <button class="logout-btn" onclick="logout()">Sign out</button>
+      </div>
+    </div>
+
+    <div class="dash-welcome">
+      <h2 id="dash-heading">Welcome back</h2>
+      <p id="dash-subheading"></p>
+    </div>
+
+    <div id="resources-grid" class="resources-grid"></div>
+
+    <div class="agent-section">
+      <div class="agent-header">
+        <h3 id="agent-name">Your <span>AI Guide</span></h3>
+        <span id="query-counter" class="query-counter"></span>
+      </div>
+
+      <div class="pillar-pills" id="pillar-pills"></div>
+
+      <div class="chat-messages" id="chat-messages"></div>
+
+      <div id="upgrade-nudge" class="upgrade-nudge" style="display:none">
+        <p>You're on <strong>Core (Pillars 1–3)</strong>. Upgrade to unlock all 10 Pillars + unlimited queries.</p>
+        <a href="https://majordream.gumroad.com" target="_blank" class="upgrade-link">Upgrade →</a>
+      </div>
+
+      <div class="chat-input-row">
+        <textarea id="chat-textarea" class="chat-textarea" rows="1"
+          placeholder="Ask about implementing any Pillar…"></textarea>
+        <button id="send-btn" class="send-btn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── PARTICLE CANVAS ──────────────────────────────────────────────
+(function(){
+  const canvas=document.getElementById('canvas-bg');
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init()}
+  function init(){
+    particles=[];
+    const n=Math.floor((W*H)/18000);
+    for(let i=0;i<n;i++){
+      particles.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()*1.5+0.3,
+        vx:(Math.random()-0.5)*0.18, vy:(Math.random()-0.5)*0.18,
+        a:Math.random()*0.5+0.1
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(240,165,0,${p.a})`;
+      ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  resize(); draw();
+})();
+
+// ── TIER CONFIG ──────────────────────────────────────────────────
+const TIERS = {
+  SCROLL: {
+    name:'Pillar Scroll', label:'scroll', chipClass:'scroll',
+    heading:'Your Pillar Journey Begins',
+    subheading:'Welcome to the M.A.I.M. movement. You have access to Pillars 1–3 and 10 AI queries per day.',
+    agentName:'Major Move Guide', queriesLeft:10, queryLimit:10,
+    pillars:[1,2,3], allPillars:false,
+    welcome:'Welcome to the Major Move Guide — your AI companion for Pillars 1, 2, and 3. Ask me anything about Diaspora Empowerment, Mindset & Resilience, or Gamified Education.',
+    resources:[
+      {icon:'📘',iconClass:'gold',title:'Pillar Scroll Book',desc:'The 10 Pillars framework — your foundational scroll.',locked:false},
+      {icon:'🔮',iconClass:'em',title:'Which Pillar Are You?',desc:'Your Pillar archetype quiz.',locked:false},
+      {icon:'🗺️',iconClass:'gold',title:'Visual Concept Map',desc:'All 10 Pillars mapped and connected.',locked:false},
+      {icon:'📱',iconClass:'lo',title:'Oath Wallpaper Pack',desc:'Mobile and desktop wallpapers.',locked:false},
+      {icon:'📔',iconClass:'pu',title:'Journal Prompts',desc:'Unlock in Emerald Awakening.',locked:true},
+      {icon:'🎨',iconClass:'em',title:'Emerald Tablet Art',desc:'Unlock in Emerald Awakening.',locked:true},
+    ],
+    systemPrompt:`You are the Major Move Guide — the AI companion for Tier 1 (Pillar Scroll) members of the Major AI Mindset framework.
+
+You help implement Pillars 1, 2, and 3 ONLY:
+1. Diaspora Empowerment — Build sovereign communities of creators, not consumers
+2. Mindset Shift & Resilience — Turn adversity into strategic greatness  
+3. Gamified Education — Make learning irresistible and addictive
+
+Your voice blends Caribbean elder wisdom, technical precision, and motivational energy. Always use culturally-resonant examples from diaspora experiences.
+
+When the user asks about Pillars 4–10, acknowledge warmly but explain those are available in Tier 2 (Emerald Awakening, $97) or Tier 3 (Dynasty Vault, $297).
+
+ALWAYS end every response with a MAJOR MOVE — one specific action the user can take immediately, formatted as:
+**MAJOR MOVE:** [specific action]
+
+Keep responses focused, warm, and actionable. You are not a generic chatbot — you are a cultural guide and implementation partner.`
+  },
+  EMERALD: {
+    name:'Emerald Awakening', label:'emerald', chipClass:'emerald',
+    heading:'The Awakening is Active',
+    subheading:'All 10 Pillars unlocked. Your AI Move Strategist has unlimited queries.',
+    agentName:'AI Move Strategist', queriesLeft:null, queryLimit:null,
+    pillars:[1,2,3,4,5,6,7,8,9,10], allPillars:true,
+    welcome:'Welcome to the AI Move Strategist — your implementation partner for all 10 Pillars of the Major AI Mindset. I can help you connect Pillars, build systems, and map your next Major Move. What are you working on?',
+    resources:[
+      {icon:'📗',iconClass:'em',title:'Emerald Awakening Book',desc:'All 10 Pillars — complete deep dive.',locked:false},
+      {icon:'📔',iconClass:'gold',title:'10 Pillars Journal',desc:'10-day deep reflection practice.',locked:false},
+      {icon:'🎨',iconClass:'em',title:'Emerald Tablet Art',desc:'Sacred geometry × future-tech.',locked:false},
+      {icon:'🖼️',iconClass:'pu',title:'2757 Vision Poster',desc:'Your 100-year legacy horizon.',locked:false},
+      {icon:'📚',iconClass:'lo',title:'5 Course Curricula',desc:'Foundations through entrepreneurial.',locked:false},
+      {icon:'🗺️',iconClass:'gold',title:'Concept Map',desc:'All 10 Pillars visualised.',locked:false},
+    ],
+    systemPrompt:`You are the AI Move Strategist — the AI companion for Tier 2 (Emerald Awakening) members of the Major AI Mindset framework.
+
+You have full access to all 10 Pillars:
+1. Diaspora Empowerment — Build sovereign communities of creators, not consumers
+2. Mindset Shift & Resilience — Turn adversity into strategic greatness
+3. Gamified Education — Make learning irresistible and addictive
+4. Blockchain & Decentralization — Restore ownership, remove middlemen
+5. Community & Collaboration — Move as crews, tribes, DAOs — not individuals
+6. Localized AI & Personalization — Tech that speaks the people's language and rhythms
+7. Holistic Wellness & Balance — Protect mind, body, spirit while scaling empires
+8. Security & Compliance — Guard sovereignty digitally and legally
+9. Data-Driven Performance — Track what matters, grow what matters
+10. Legacy & Long-Term Impact — Build 100-year dynasties, not 1-year hype
+
+Your voice blends Caribbean elder wisdom, technical precision, cultural authenticity, and strategic vision. Use diaspora-relevant examples. Code-switch naturally when appropriate.
+
+When answering, always:
+1. Identify which Pillar(s) are most relevant
+2. Provide practical, culturally-resonant implementation guidance
+3. Show how multiple Pillars work together when relevant
+4. End with: **MAJOR MOVE:** [specific immediate action]
+
+You are not a generic chatbot. You are a cultural guide, strategic partner, and implementation catalyst for Caribbean diaspora builders.`
+  },
+  VAULT: {
+    name:'Dynasty Vault', label:'vault', chipClass:'vault',
+    heading:'Dynasty. Unlocked.',
+    subheading:'Premium access. Lifetime. No ceiling. The AI Mind Architect is at your service.',
+    agentName:'AI Mind Architect', queriesLeft:null, queryLimit:null,
+    pillars:[1,2,3,4,5,6,7,8,9,10], allPillars:true,
+    welcome:'Welcome, Dynasty member. I am the AI Mind Architect — your premium implementation partner for the complete Major AI Mindset framework. I can generate 30-60-90 day roadmaps, business model adaptations, DAO governance frameworks, and legacy planning documents. Where shall we build?',
+    resources:[
+      {icon:'📕',iconClass:'gold',title:'Dynasty Vault Guide',desc:'Complete member guide + activation sequence.',locked:false},
+      {icon:'🗓️',iconClass:'em',title:'30-60-90 Roadmap',desc:'Phased implementation with Pillar tasks.',locked:false},
+      {icon:'📊',iconClass:'gold',title:'Business Model Canvas',desc:'M.A.I.M. adapted for Caribbean ventures.',locked:false},
+      {icon:'⚙️',iconClass:'pu',title:'DAO Architecture Guide',desc:'Build decentralised communities.',locked:false},
+      {icon:'💰',iconClass:'lo',title:'Wealth Collective Guide',desc:'Diaspora investment without banks.',locked:false},
+      {icon:'📜',iconClass:'gold',title:'Legacy Planning Doc',desc:'100-year dynasty design framework.',locked:false},
+    ],
+    systemPrompt:`You are the AI Mind Architect — the premium AI companion for Tier 3 (Dynasty Vault) members of the Major AI Mindset framework.
+
+You provide comprehensive, multi-layered implementation guidance across all 10 Pillars at the highest level:
+1. Diaspora Empowerment — Sovereign communities, brain circulation, economic bridges
+2. Mindset Shift & Resilience — Anti-fragile thinking, sovereign identity, wealth consciousness
+3. Gamified Education — Personal learning systems, play-to-earn models, challenge-based design
+4. Blockchain & Decentralization — Ownership structures, tokenization, DAO architecture
+5. Community & Collaboration — DAOs, Learning Circles, collective intelligence, intergenerational transfer
+6. Localized AI & Personalization — Culturally-contextualised AI, language preservation, regional solutions
+7. Holistic Wellness & Balance — Sovereignty Maintenance Protocol, traditional + digital wellness
+8. Security & Compliance — Digital perimeter, legal architecture, cross-border structures
+9. Data-Driven Performance — Sovereignty Metrics, measurement systems, community data ownership
+10. Legacy & Long-Term Impact — 100-year dynasty design, intergenerational transfer, knowledge repositories
+
+As the Dynasty tier architect you can generate:
+- Complete 30-60-90 day personalised implementation roadmaps
+- Business Model Canvas adaptations for Caribbean ventures
+- DAO governance structure designs
+- Diaspora Wealth Collective frameworks
+- Legacy Planning documents and 100-year vision statements
+- Multi-Pillar integration strategies for complex challenges
+
+Your voice embodies: the strategic precision of a master architect, the cultural depth of a Caribbean elder, the technical expertise of an innovation leader, and the long-term perspective of a dynasty builder.
+
+Always:
+1. Acknowledge the specific context the user has shared
+2. Connect to the relevant Pillar(s) with depth and nuance
+3. Provide comprehensive, structured guidance
+4. Show Pillar interconnections and compound effects
+5. Close with a prioritised: **MAJOR MOVE SEQUENCE:** [action 1] → [action 2] → [action 3]
+
+Treat Dynasty members as partners in building the Caribbean Renaissance. This is not a chatbot interaction. This is a council session.`
+  }
+};
+
+// ── STATE ────────────────────────────────────────────────────────
+let currentTier = null;
+let currentUser = null;
+let messages = [];
+let queriesUsed = 0;
+let activePillar = null;
+let isLoading = false;
+
+// ── TOKEN VALIDATION ─────────────────────────────────────────────
+const TOKEN_MAP = {
+  // Real pattern: SCROLL-{hash}, EMERALD-{hash}, VAULT-{hash}
+  // Demo tokens for testing
+  'SCROLL-DEMO':   {tier:'SCROLL',  email:'demo@pilgrimscroll.io'},
+  'EMERALD-DEMO':  {tier:'EMERALD', email:'demo@emeraldawakening.io'},
+  'VAULT-DEMO':    {tier:'VAULT',   email:'demo@dynastyvault.io'},
+  // Real Gumroad flow: token includes tier prefix
+};
+
+function parseToken(token) {
+  token = token.trim().toUpperCase();
+  // Check demo map
+  if(TOKEN_MAP[token]) return TOKEN_MAP[token];
+  // Parse real token format: TIER-XXXXXXXX
+  const parts = token.split('-');
+  if(parts.length >= 2) {
+    const tier = parts[0];
+    if(['SCROLL','EMERALD','VAULT'].includes(tier)) {
+      return {tier, email: 'member@maim.io'};
+    }
+  }
+  return null;
+}
+
+function demoLogin(tier) {
+  document.getElementById('token-input').value = tier + '-DEMO';
+  doLogin();
+}
+
+document.getElementById('login-btn').addEventListener('click', doLogin);
+document.getElementById('token-input').addEventListener('keydown', e => {
+  if(e.key === 'Enter') doLogin();
+});
+
+function doLogin() {
+  const token = document.getElementById('token-input').value;
+  const result = parseToken(token);
+  const errorEl = document.getElementById('login-error');
+
+  if(!result) {
+    errorEl.classList.add('show');
+    document.getElementById('token-input').style.borderColor='rgba(192,57,43,0.5)';
+    return;
+  }
+
+  errorEl.classList.remove('show');
+  document.getElementById('token-input').style.borderColor='';
+
+  // Store session
+  currentTier = result.tier;
+  currentUser = result.email;
+  localStorage.setItem('maim_tier', currentTier);
+  localStorage.setItem('maim_user', currentUser);
+  queriesUsed = parseInt(localStorage.getItem('maim_queries_'+currentUser) || '0');
+
+  loadDashboard();
+}
+
+function logout() {
+  currentTier = null; currentUser = null; messages = [];
+  showView('view-login');
+  document.getElementById('token-input').value = '';
+}
+
+// ── CHECK EXISTING SESSION ────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTier = localStorage.getItem('maim_tier');
+  const savedUser = localStorage.getItem('maim_user');
+  if(savedTier && savedUser) {
+    currentTier = savedTier; currentUser = savedUser;
+    queriesUsed = parseInt(localStorage.getItem('maim_queries_'+currentUser) || '0');
+    loadDashboard();
+  }
+});
+
+// ── DASHBOARD SETUP ───────────────────────────────────────────────
+function loadDashboard() {
+  const tier = TIERS[currentTier];
+  showView('view-dash');
+
+  // Header
+  document.getElementById('dash-email').textContent = currentUser;
+  const chip = document.getElementById('tier-chip');
+  chip.textContent = tier.name;
+  chip.className = 'tier-chip ' + tier.chipClass;
+
+  // Welcome
+  document.getElementById('dash-heading').innerHTML =
+    'Welcome, <em>' + tier.name + '</em>';
+  document.getElementById('dash-subheading').textContent = tier.subheading;
+
+  // Resources
+  const grid = document.getElementById('resources-grid');
+  grid.innerHTML = '';
+  tier.resources.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'resource-card' + (r.locked ? ' locked' : '');
+    card.innerHTML = `
+      <div class="rc-icon ${r.iconClass}">${r.icon}</div>
+      <h4>${r.title}</h4>
+      <p>${r.desc}</p>
+      ${r.locked ? '<div class="lock-label">🔒 Upgrade to unlock</div>' : ''}
+    `;
+    grid.appendChild(card);
+  });
+
+  // Agent name
+  document.getElementById('agent-name').innerHTML =
+    'Your <span>' + tier.agentName + '</span>';
+
+  // Query counter
+  const counter = document.getElementById('query-counter');
+  if(tier.queryLimit) {
+    const left = Math.max(0, tier.queryLimit - queriesUsed);
+    counter.innerHTML = `<strong>${left}</strong> queries remaining today`;
+  } else {
+    counter.innerHTML = `<strong>Unlimited</strong> queries`;
+  }
+
+  // Upgrade nudge for Core
+  document.getElementById('upgrade-nudge').style.display =
+    currentTier === 'SCROLL' ? 'flex' : 'none';
+
+  // Pillar pills
+  buildPillarPills(tier);
+
+  // Welcome message
+  messages = [];
+  const chatEl = document.getElementById('chat-messages');
+  chatEl.innerHTML = '';
+  addMessage('system', '— ' + tier.agentName + ' —');
+  addMessage('assistant', tier.welcome);
+}
+
+function buildPillarPills(tier) {
+  const pillarsEl = document.getElementById('pillar-pills');
+  pillarsEl.innerHTML = '';
+  const allPillars = [
+    [1,'Diaspora'],[2,'Mindset'],[3,'Education'],[4,'Blockchain'],
+    [5,'Community'],[6,'Local AI'],[7,'Wellness'],[8,'Security'],
+    [9,'Data'],[10,'Legacy']
+  ];
+  allPillars.forEach(([num, label]) => {
+    const btn = document.createElement('button');
+    const locked = !tier.pillars.includes(num);
+    btn.className = 'pillar-pill' + (locked ? ' locked-pill' : '');
+    btn.textContent = `${num < 10 ? '0'+num : num} ${label}`;
+    btn.dataset.pillar = num;
+    if(!locked) {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pillar-pill').forEach(p => p.classList.remove('active-pill'));
+        btn.classList.add('active-pill');
+        activePillar = num;
+        const ta = document.getElementById('chat-textarea');
+        ta.placeholder = `Ask about Pillar ${num}: ${label}…`;
+        ta.focus();
+      });
+    }
+    pillarsEl.appendChild(btn);
+  });
+}
+
+// ── CHAT ──────────────────────────────────────────────────────────
+function addMessage(role, content) {
+  messages.push({role, content});
+  const chatEl = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+
+  if(role === 'assistant') {
+    // Parse **MAJOR MOVE:** blocks
+    const parts = content.split(/(\*\*MAJOR MOVE[^:]*:\*\*[^\n]*)/);
+    parts.forEach(part => {
+      if(part.match(/\*\*MAJOR MOVE/)) {
+        const clean = part.replace(/\*\*/g,'');
+        const mm = document.createElement('div');
+        mm.className = 'major-move';
+        mm.textContent = clean;
+        div.appendChild(mm);
+      } else if(part.trim()) {
+        const p = document.createElement('p');
+        p.style.cssText = 'margin:0;';
+        // Bold markdown
+        p.innerHTML = part.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+        div.appendChild(p);
+      }
+    });
+  } else {
+    div.textContent = content;
+  }
+
+  chatEl.appendChild(div);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function addTyping() {
+  const chatEl = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg typing';
+  div.id = 'typing-indicator';
+  div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  chatEl.appendChild(div);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if(t) t.remove();
+}
+
+async function sendMessage() {
+  const tier = TIERS[currentTier];
+  const ta = document.getElementById('chat-textarea');
+  const text = ta.value.trim();
+  if(!text || isLoading) return;
+
+  // Check query limit
+  if(tier.queryLimit && queriesUsed >= tier.queryLimit) {
+    addMessage('system', '⚠️ Daily query limit reached. Upgrade to continue.');
+    return;
+  }
+
+  ta.value = '';
+  ta.style.height = 'auto';
+  addMessage('user', text);
+  isLoading = true;
+  document.getElementById('send-btn').disabled = true;
+  addTyping();
+
+  try {
+    // Build conversation for API
+    const apiMessages = messages
+      .filter(m => m.role === 'user' || m.role === 'assistant')
+      .slice(-10) // keep last 10 for context
+      .map(m => ({role: m.role, content: m.content}));
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: tier.systemPrompt,
+        messages: apiMessages
+      })
+    });
+
+    const data = await response.json();
+    removeTyping();
+
+    if(data.content && data.content[0]) {
+      const reply = data.content[0].text;
+      addMessage('assistant', reply);
+
+      // Track query usage
+      queriesUsed++;
+      localStorage.setItem('maim_queries_'+currentUser, queriesUsed.toString());
+
+      // Update counter
+      if(tier.queryLimit) {
+        const left = Math.max(0, tier.queryLimit - queriesUsed);
+        document.getElementById('query-counter').innerHTML =
+          `<strong>${left}</strong> queries remaining today`;
+      }
+    } else {
+      addMessage('assistant', 'Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    removeTyping();
+    addMessage('assistant', 'Connection error. Please check your connection and try again.');
+  }
+
+  isLoading = false;
+  document.getElementById('send-btn').disabled = false;
+}
+
+// Auto-resize textarea
+document.getElementById('chat-textarea').addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+});
+
+// Send on Enter (Shift+Enter for newline)
+document.getElementById('chat-textarea').addEventListener('keydown', function(e) {
+  if(e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+// ── UTILS ──────────────────────────────────────────────────────────
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
