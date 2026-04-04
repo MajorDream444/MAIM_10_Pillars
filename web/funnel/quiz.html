@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M.A.I.M. — Which Pillar Are You?</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#08111f;--gold:#f0a500;--gold-lt:#fdc84b;
+  --em:#0e7a4e;--em-lt:#27ae60;--white:#fafaf8;
+  --muted:rgba(250,250,248,0.52);--light:#c8d8ea;--dark2:#0d1e35;
+  --border:rgba(240,165,0,0.2);--border-soft:rgba(250,250,248,0.07);
+  --purple:#7b5ea7;--teal:#0099cc;
+}
+html,body{min-height:100%;background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
+
+.wrap{max-width:640px;margin:0 auto;padding:2rem 1.5rem 4rem;min-height:100vh;display:flex;flex-direction:column}
+
+/* ── PROGRESS ────────────────────────────────────────────── */
+.progress-bar-wrap{margin-bottom:2rem}
+.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem}
+.progress-label{font-size:10px;color:var(--muted);font-weight:300;letter-spacing:0.08em;text-transform:uppercase}
+.progress-count{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--gold)}
+.progress-track{height:3px;background:var(--border-soft);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s cubic-bezier(.22,1,.36,1)}
+
+/* ── QUESTION CARD ───────────────────────────────────────── */
+.question-screen{flex:1;display:flex;flex-direction:column;justify-content:center}
+.question-card{animation:qin 0.4s cubic-bezier(.22,1,.36,1) both}
+@keyframes qin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes qout{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-24px)}}
+.question-card.leaving{animation:qout 0.25s ease both}
+
+.q-num{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.q-text{
+  font-family:'Syne',sans-serif;font-size:clamp(1.2rem,3vw,1.6rem);
+  font-weight:800;line-height:1.2;margin-bottom:2rem;letter-spacing:-0.015em;
+}
+
+.options{display:flex;flex-direction:column;gap:0.6rem}
+
+.option{
+  display:flex;align-items:flex-start;gap:0.8rem;
+  padding:1rem 1.1rem;
+  background:rgba(255,255,255,0.02);
+  border:0.5px solid var(--border-soft);border-radius:10px;
+  cursor:pointer;transition:all 0.15s;text-align:left;width:100%;
+}
+.option:hover{border-color:rgba(240,165,0,0.3);background:rgba(255,255,255,0.04)}
+.option.selected{
+  border-color:var(--gold);
+  background:rgba(240,165,0,0.08);
+}
+.option-letter{
+  font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;
+  color:var(--gold);min-width:20px;margin-top:1px;flex-shrink:0;
+}
+.option-text{font-size:0.9rem;color:var(--light);line-height:1.5;font-weight:300}
+
+.option.selected .option-text{color:var(--white)}
+
+/* ── RESULTS SCREEN ──────────────────────────────────────── */
+.results-screen{display:none;flex:1;flex-direction:column;animation:qin 0.5s ease both}
+.results-screen.show{display:flex}
+
+.result-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--em-lt);margin-bottom:1.2rem;
+}
+.result-badge::before,.result-badge::after{content:'';width:16px;height:1px;background:var(--em-lt);opacity:0.5}
+
+.archetype-chip{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:1rem;
+}
+
+.result-title{
+  font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;
+  line-height:1.05;margin-bottom:0.6rem;letter-spacing:-0.025em;
+}
+.result-pillar{font-size:0.82rem;color:var(--muted);font-weight:300;margin-bottom:1.4rem}
+.result-desc{
+  font-size:1rem;color:var(--light);font-weight:300;line-height:1.8;
+  margin-bottom:0.5rem;padding:1.2rem 1.4rem;
+  background:rgba(13,30,53,0.7);border:0.5px solid var(--border-soft);
+  border-radius:10px;
+}
+.major-move{
+  margin:1rem 0 2rem;padding:1rem 1.2rem;
+  background:rgba(240,165,0,0.07);border:0.5px solid var(--border);
+  border-left:2.5px solid var(--gold);border-radius:0 8px 8px 0;
+}
+.mm-label{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+.mm-text{font-size:0.88rem;color:var(--gold-lt);font-style:italic;line-height:1.6}
+
+/* ── OFFER CARD ──────────────────────────────────────────── */
+.offer-card{
+  background:rgba(13,30,53,0.85);border:0.5px solid var(--border);
+  border-radius:14px;padding:1.8rem;margin-top:0.5rem;
+  backdrop-filter:blur(12px);
+}
+.offer-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--em-lt);margin-bottom:0.8rem;
+}
+.offer-card h3{font-size:1.3rem;font-weight:800;margin-bottom:0.4rem}
+.offer-card p{font-size:0.85rem;color:var(--muted);font-weight:300;margin-bottom:1.2rem;line-height:1.7}
+
+.tier-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.75rem 1rem;border:0.5px solid var(--border-soft);
+  border-radius:8px;margin-bottom:0.5rem;
+  background:rgba(255,255,255,0.02);
+  transition:border-color 0.15s;
+}
+.tier-row:hover{border-color:var(--border)}
+.tier-row.featured{border-color:var(--em-lt);background:rgba(39,174,96,0.07)}
+.tier-info h4{font-size:0.85rem;font-weight:700;margin-bottom:2px}
+.tier-info p{font-size:0.75rem;color:var(--muted);font-weight:300;margin:0}
+.tier-price{
+  font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;
+  color:var(--white);flex-shrink:0;margin-left:1rem;
+}
+.tier-row.featured .tier-price{color:var(--em-lt)}
+
+.offer-cta{
+  display:block;width:100%;padding:0.95rem;margin-top:1rem;
+  background:var(--gold);color:var(--navy);border:none;border-radius:8px;
+  font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;
+  text-decoration:none;text-align:center;transition:background 0.15s;
+}
+.offer-cta:hover{background:var(--gold-lt)}
+
+.offer-note{font-size:11px;color:var(--muted);text-align:center;margin-top:0.8rem;font-weight:300}
+
+/* share strip */
+.share-strip{margin-top:2rem;text-align:center}
+.share-strip p{font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;font-weight:300}
+.share-btns{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap}
+.share-btn{
+  font-size:0.75rem;padding:0.5rem 1.1rem;border-radius:6px;
+  border:0.5px solid var(--border-soft);color:var(--muted);
+  background:none;cursor:pointer;transition:all 0.15s;text-decoration:none;
+}
+.share-btn:hover{border-color:var(--border);color:var(--white)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- PROGRESS -->
+  <div class="progress-bar-wrap" id="progress-wrap">
+    <div class="progress-meta">
+      <span class="progress-label">Which Pillar Are You?</span>
+      <span class="progress-count" id="q-count">1 of 7</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:14%"></div>
+    </div>
+  </div>
+
+  <!-- QUESTION SCREEN -->
+  <div class="question-screen" id="question-screen">
+    <div class="question-card" id="question-card">
+      <div class="q-num" id="q-num">Question 1 of 7</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div class="results-screen" id="results-screen">
+    <div class="result-badge">Your Archetype</div>
+    <div class="archetype-chip" id="result-chip"></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-pillar" id="result-pillar"></div>
+    <div class="result-desc" id="result-desc"></div>
+    <div class="major-move">
+      <div class="mm-label">Your Major Move</div>
+      <div class="mm-text" id="result-move"></div>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-eyebrow">Ready to go deeper?</div>
+      <h3 id="offer-heading">Unlock the Full Blueprint</h3>
+      <p id="offer-body">Your archetype is the entry point — not the ceiling. The Major AI Mindset framework has 10 Pillars. Here's how to unlock them all.</p>
+
+      <div class="tier-row">
+        <div class="tier-info">
+          <h4>The Pillar Scroll</h4>
+          <p>Book · Quiz · AI Guide (Pillars 1–3)</p>
+        </div>
+        <div class="tier-price">$27</div>
+      </div>
+      <div class="tier-row featured">
+        <div class="tier-info">
+          <h4>The Emerald Awakening ✦ Popular</h4>
+          <p>All 10 Pillars · AI Strategist · Journal + Art</p>
+        </div>
+        <div class="tier-price">$97</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-info">
+          <h4>The Pillar Code Vault</h4>
+          <p>Dynasty · AI Architect · Lifetime access</p>
+        </div>
+        <div class="tier-price">$297</div>
+      </div>
+
+      <a href="https://majordream.gumroad.com" target="_blank" class="offer-cta">
+        Claim My Blueprint →
+      </a>
+      <p class="offer-note">Instant delivery · 100% satisfaction guarantee · All formats included</p>
+    </div>
+
+    <div class="share-strip">
+      <p>Share your archetype</p>
+      <div class="share-btns">
+        <a class="share-btn" id="share-twitter" href="#" target="_blank">𝕏 Twitter</a>
+        <a class="share-btn" id="share-whatsapp" href="#" target="_blank">WhatsApp</a>
+        <button class="share-btn" onclick="copyResult()">Copy result</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    text: "When you think about building something bigger than yourself, your first instinct is to…",
+    opts: [
+      {l:'A', t:"Connect with my community — bring people together around a shared mission"},
+      {l:'B', t:"Research the technology and tools I'll need to make it real"},
+      {l:'C', t:"Journal, reflect, and map out how this aligns with my values and legacy"},
+      {l:'D', t:"Start learning — find a challenge or mentor to level up fast"},
+    ]
+  },
+  {
+    text: "When you hit a major obstacle or failure, you typically…",
+    opts: [
+      {l:'A', t:"Feel it deeply, then reframe it as data and come back stronger"},
+      {l:'B', t:"Look for the system failure — what process broke down and how to fix it"},
+      {l:'C', t:"Lean on your people — community and mentors help you navigate"},
+      {l:'D', t:"Protect yourself — make sure you're legally and financially secure"},
+    ]
+  },
+  {
+    text: "If you had one year and unlimited energy to work on one thing, it would be…",
+    opts: [
+      {l:'A', t:"Building a platform, DAO, or community that creates shared ownership"},
+      {l:'B', t:"Developing an AI-powered product rooted in Caribbean culture"},
+      {l:'C', t:"Creating an educational program that transforms how people learn"},
+      {l:'D', t:"Building a generational wealth vehicle — real estate, crypto, or a trust"},
+    ]
+  },
+  {
+    text: "People who know you well would describe your greatest strength as…",
+    opts: [
+      {l:'A', t:"Your resilience — you get back up, every single time"},
+      {l:'B', t:"Your vision — you see 10 years ahead while others see 10 months"},
+      {l:'C', t:"Your ability to bring people together and make them feel seen"},
+      {l:'D', t:"Your analytical mind — you find patterns others miss"},
+    ]
+  },
+  {
+    text: "When you think about the Caribbean diaspora's greatest opportunity right now, you see…",
+    opts: [
+      {l:'A', t:"AI and automation tools that could replace outsider systems with sovereign ones"},
+      {l:'B', t:"Community wealth pooling and decentralized financial infrastructure"},
+      {l:'C', t:"Education reform — teaching youth to build, not just consume, technology"},
+      {l:'D', t:"Wellness and cultural preservation through digital storytelling"},
+    ]
+  },
+  {
+    text: "Your ideal workday involves mostly…",
+    opts: [
+      {l:'A', t:"Deep strategy work — mapping, planning, long-horizon thinking"},
+      {l:'B', t:"Building and creating — making something tangible with your hands or mind"},
+      {l:'C', t:"Connecting and communicating — meetings, mentoring, community building"},
+      {l:'D', t:"Learning and research — consuming, synthesizing, and experimenting"},
+    ]
+  },
+  {
+    text: "When you imagine the legacy you want to leave, you see…",
+    opts: [
+      {l:'A', t:"Institutions and systems that outlive you by 100 years"},
+      {l:'B', t:"A generation of builders empowered by your work and example"},
+      {l:'C', t:"Technology and tools that preserved and amplified your culture"},
+      {l:'D', t:"A community that owns its wealth, its story, and its future"},
+    ]
+  },
+];
+
+const ARCHETYPES = {
+  A: {
+    id:'A', color:'#27ae60', bgColor:'rgba(39,174,96,0.15)',
+    name:'The Community Architect',
+    pillar:'Pillar 5 — Community & Collaboration',
+    desc:"You are the connective tissue of the movement. Your superpower is bringing people together around shared purpose and building structures that distribute power rather than concentrate it. You see collective intelligence where others see a crowd. In the age of AI, your gift is designing systems that amplify everyone in the room — not just yourself.",
+    move:"Start or join a mastermind, DAO, or learning circle this month. Your empire is built with people, not despite them.",
+  },
+  B: {
+    id:'B', color:'#f0a500', bgColor:'rgba(240,165,0,0.15)',
+    name:'The Sovereign Builder',
+    pillar:'Pillar 4 — Blockchain & Decentralization',
+    desc:"You are the architect of new infrastructure. You see broken systems and instinctively reach for tools that replace them with something owned by the people. You do not tolerate unnecessary middlemen — financial, technological, or political. Your greatest contribution is building ownership structures that communities will still be living inside in 100 years.",
+    move:"Research one blockchain or ownership tool this week and prototype a use case for your community. One asset. One structure. Start there.",
+  },
+  C: {
+    id:'C', color:'#7b5ea7', bgColor:'rgba(123,94,167,0.15)',
+    name:'The Legacy Visionary',
+    pillar:'Pillar 10 — Legacy & Long-Term Impact',
+    desc:"You think in centuries. You are the keeper of the long vision — the one who makes decisions today based on who will benefit 50 years from now. Where others optimize for the quarter, you optimize for the dynasty. Your challenge is translating that vision into near-term action. Your gift is ensuring the movement never loses its soul.",
+    move:"Write your 100-year legacy statement. One paragraph. Keep it somewhere sacred. Read it every morning for 30 days.",
+  },
+  D: {
+    id:'D', color:'#0099cc', bgColor:'rgba(0,153,204,0.15)',
+    name:'The Knowledge Warrior',
+    pillar:'Pillar 3 — Gamified Education',
+    desc:"You learn to build and build to teach. Your power is the ability to absorb complex ideas — AI, blockchain, culture, strategy — and transform them into tools others can use. You are the bridge between the framework and the people who need it. Your greatest impact comes when you stop consuming and start creating systems for others to grow through.",
+    move:"Design your 30-day learning sprint. Pick one AI tool. Commit to 20 minutes daily. Share Day 1 progress with someone in your network today.",
+  },
+};
+
+// ── STATE ────────────────────────────────────────────────────
+let current = 0;
+const answers = [];
+const name = new URLSearchParams(window.location.search).get('name') || sessionStorage.getItem('maim_name') || 'Builder';
+
+// ── RENDER QUESTION ──────────────────────────────────────────
+function renderQuestion(idx) {
+  const q = QUESTIONS[idx];
+  document.getElementById('q-num').textContent   = `Question ${idx+1} of ${QUESTIONS.length}`;
+  document.getElementById('q-count').textContent = `${idx+1} of ${QUESTIONS.length}`;
+  document.getElementById('q-text').textContent  = q.text;
+  document.getElementById('progress-fill').style.width = ((idx+1)/QUESTIONS.length*100) + '%';
+
+  const optionsEl = document.getElementById('options');
+  optionsEl.innerHTML = '';
+  q.opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.innerHTML = `<span class="option-letter">${opt.l}</span><span class="option-text">${opt.t}</span>`;
+    btn.addEventListener('click', () => selectAnswer(opt.l, btn));
+    optionsEl.appendChild(btn);
+  });
+}
+
+function selectAnswer(letter, btn) {
+  // Highlight selection briefly
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+
+  answers.push(letter);
+
+  setTimeout(() => {
+    if(current < QUESTIONS.length - 1) {
+      const card = document.getElementById('question-card');
+      card.classList.add('leaving');
+      setTimeout(() => {
+        current++;
+        card.classList.remove('leaving');
+        renderQuestion(current);
+      }, 220);
+    } else {
+      showResults();
+    }
+  }, 300);
+}
+
+// ── RESULTS ──────────────────────────────────────────────────
+function showResults() {
+  // Tally answers
+  const tally = {A:0,B:0,C:0,D:0};
+  answers.forEach(a => tally[a]++);
+  const winner = Object.entries(tally).sort((x,y) => y[1]-x[1])[0][0];
+  const arch = ARCHETYPES[winner];
+
+  document.getElementById('progress-fill').style.width = '100%';
+
+  document.getElementById('result-chip').textContent = arch.name;
+  document.getElementById('result-chip').style.cssText = `background:${arch.bgColor};color:${arch.color};border:0.5px solid ${arch.color}40`;
+
+  document.getElementById('result-title').innerHTML = `${name},<br>you are <span style="color:${arch.color}">${arch.name}</span>`;
+  document.getElementById('result-pillar').textContent = arch.pillar;
+  document.getElementById('result-desc').textContent = arch.desc;
+  document.getElementById('result-move').textContent = arch.move;
+
+  // Personalise offer heading
+  document.getElementById('offer-heading').textContent =
+    `${arch.name.split(' ').slice(-1)[0]}, here's your full blueprint`;
+
+  // Share links
+  const shareText = `I just discovered I'm ${arch.name} in the Major AI Mindset framework. Find out which Pillar you are:`;
+  document.getElementById('share-twitter').href =
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://majordream.gumroad.com')}`;
+  document.getElementById('share-whatsapp').href =
+    `https://wa.me/?text=${encodeURIComponent(shareText + ' https://majordream.gumroad.com')}`;
+
+  document.getElementById('question-screen').style.display = 'none';
+  document.getElementById('progress-wrap').style.display   = 'none';
+  document.getElementById('results-screen').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  // Store archetype for email sequence
+  sessionStorage.setItem('maim_archetype', arch.id);
+  sessionStorage.setItem('maim_archetype_name', arch.name);
+}
+
+function copyResult() {
+  const archName = sessionStorage.getItem('maim_archetype_name') || 'Community Architect';
+  const text = `I'm ${archName} in the Major AI Mindset framework. Find yours: https://majordream.gumroad.com`;
+  navigator.clipboard?.writeText(text).then(() => alert('Copied to clipboard!')).catch(() => {});
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+renderQuestion(0);
+</script>
+</body>
+</html>
