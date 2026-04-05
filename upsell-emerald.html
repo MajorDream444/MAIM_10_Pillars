@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wait — Upgrade to Emerald | M.A.I.M.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy-mid: #111827;
+      --gold: #F7B731;
+      --gold-dim: #c9941f;
+      --emerald: #27AE60;
+      --white: #f0ede6;
+      --muted: #8a9ab5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Top badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(247,183,49,0.12);
+      border: 1px solid rgba(247,183,49,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .badge::before {
+      content: '✓';
+      background: var(--emerald);
+      color: white;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    /* Hero */
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      animation: fadeDown 0.6s 0.1s ease both;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+      animation: fadeDown 0.6s 0.2s ease both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 40px;
+      animation: fadeDown 0.6s 0.3s ease both;
+    }
+
+    /* Divider */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 40px;
+      animation: fadeDown 0.6s 0.35s ease both;
+    }
+
+    /* What you're missing */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      animation: fadeDown 0.6s 0.4s ease both;
+    }
+
+    .pillars-grid {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 40px;
+      animation: fadeDown 0.6s 0.45s ease both;
+    }
+
+    .pillar-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .pillar-row:hover {
+      border-color: rgba(247,183,49,0.2);
+    }
+
+    .pillar-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      min-width: 28px;
+      padding-top: 2px;
+    }
+
+    .pillar-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .pillar-text span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .locked {
+      opacity: 0.38;
+      position: relative;
+    }
+
+    .locked::after {
+      content: '🔒';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+    }
+
+    /* Price block */
+    .price-block {
+      background: rgba(247,183,49,0.06);
+      border: 1px solid rgba(247,183,49,0.2);
+      border-radius: 14px;
+      padding: 32px 28px;
+      margin-bottom: 28px;
+      animation: fadeDown 0.6s 0.5s ease both;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price-main {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .price-strike {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .price-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-decoration: none;
+      padding: 20px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 16px;
+      animation: fadeDown 0.6s 0.55s ease both;
+    }
+
+    .cta-btn:hover {
+      background: #ffc94a;
+      transform: translateY(-1px);
+    }
+
+    .cta-btn:active {
+      transform: translateY(0);
+    }
+
+    .skip-link {
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px;
+      animation: fadeDown 0.6s 0.6s ease both;
+      transition: color 0.2s;
+    }
+
+    .skip-link:hover { color: var(--white); }
+
+    /* Also skip to vault */
+    .vault-bump {
+      margin-top: 40px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeDown 0.6s 0.65s ease both;
+    }
+
+    .vault-bump-text p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .vault-bump-text strong {
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .vault-link {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid rgba(247,183,49,0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .vault-link:hover {
+      background: rgba(247,183,49,0.1);
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .page { padding: 40px 20px 60px; }
+      h1 { font-size: 1.9rem; }
+      .price-main { font-size: 2.4rem; }
+      .vault-bump { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="badge">Pillar Scroll — Purchase Confirmed</div>
+
+  <p class="eyebrow">One move before you go</p>
+
+  <h1>You unlocked<br/>Pillars 1–3.<br/><em>Here's how to<br/>unlock all 10.</em></h1>
+
+  <p class="lead">The Scroll is the foundation. But the real building — blockchain ownership, community DAOs, AI personalization, legacy systems — lives in Pillars 4–10. The Emerald Awakening unlocks all of it, plus the AI Move Strategist built specifically for your situation.</p>
+
+  <div class="divider"></div>
+
+  <p class="section-label">What the Emerald unlocks</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-row">
+      <span class="pillar-num">P1–3</span>
+      <div class="pillar-text">
+        <strong>Foundation Pillars ✓</strong>
+        <span>Already yours with the Scroll</span>
+      </div>
+    </div>
+    <div class="pillar-row locked">
+      <span class="pillar-num">P4</span>
+      <div class="pillar-text">
+        <strong>Blockchain & Decentralization</strong>
+        <span>Restoring ownership — removing middlemen</span>
+      </div>
+    </div>
+    <div class="pillar-row locked">
+      <span class="pillar-num">P5</span>
+      <div class="pillar-text">
+        <strong>Community & Collaboration</strong>
+        <span>Moving as crews, tribes, DAOs — not individuals</span>
+      </div>
+    </div>
+    <div class="pillar-row locked">
+      <span class="pillar-num">P6</span>
+      <div class="pillar-text">
+        <strong>Localized AI & Personalization</strong>
+        <span>Tech that speaks the people's language</span>
+      </div>
+    </div>
+    <div class="pillar-row locked">
+      <span class="pillar-num">P7–10</span>
+      <div class="pillar-text">
+        <strong>Wellness · Security · Data · Legacy</strong>
+        <span>The full operating system for your dynasty</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-block">
+    <div class="price-row">
+      <span class="price-main">$70</span>
+      <span class="price-note">upgrade price today</span>
+    </div>
+    <p class="price-sub">
+      <span class="price-strike">$97 full price</span> — you already paid $27 for the Scroll.<br/>
+      Upgrade now and pay only the difference.
+    </p>
+  </div>
+
+  <a class="cta-btn" href="https://majordream.gumroad.com/l/emerald" target="_blank">
+    Yes — Upgrade to Emerald for $70 →
+  </a>
+
+  <a class="skip-link" href="https://majordream.gumroad.com/l/hsyotb">
+    No thanks — I'll stick with the Scroll for now
+  </a>
+
+  <div class="vault-bump">
+    <div class="vault-bump-text">
+      <strong>Want to skip straight to the top?</strong>
+      <p>The Pillar Code Vault has everything + Dynasty AI access. $270 upgrade from your Scroll.</p>
+    </div>
+    <a class="vault-link" href="https://majordream.gumroad.com/l/vault" target="_blank">
+      Go to the Vault →
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
