@@ -1,0 +1,343 @@
+# Instincts generated from https://github.com/MajorDream444/MAIM_10_Pillars
+# Generated: 2026-07-19T11:37:27.552Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: MAIM_10_Pillars-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: chore
+
+## Evidence
+
+- 4 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore: add production readiness control (AGENTS.md), chore: add production readiness control (CLAUDE.md)
+
+---
+id: MAIM_10_Pillars-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Commit Length
+
+## Action
+
+Write moderate-length commit messages (~62 characters)
+
+## Evidence
+
+- Average commit message length: 62 chars
+- Based on 4 commits
+
+---
+id: MAIM_10_Pillars-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: MAIM_10_Pillars-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: MAIM_10_Pillars-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: MAIM_10_Pillars-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: MAIM_10_Pillars-workflow-add-production-readiness-control-documentation
+trigger: "when doing add production readiness control documentation"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/MAIM_10_Pillars
+---
+
+# MAIM_10_Pillars Workflow Add Production Readiness Control Documentation
+
+## Action
+
+Follow the add-production-readiness-control-documentation workflow:
+1. Identify the component or area needing production readiness documentation.
+2. Create or update the relevant markdown file (e.g., AGENTS.md, CLAUDE.md, .github/PRODUCTION_READINESS.md, .github/pull_request_template.md) with production readiness information.
+3. Commit the changes with a message indicating addition of production readiness control.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: AGENTS.md, CLAUDE.md, .github/PRODUCTION_READINESS.md
+
+---
+id: maim_10_pillars-instinct-file-naming
+trigger: "When creating a new file in the repository"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct File Naming
+
+## Action
+
+Name the file using snake_case
+
+## Evidence
+
+- Pattern in namingConventions.files: snake_case
+
+---
+id: maim_10_pillars-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Function Naming
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: maim_10_pillars-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: maim_10_pillars-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: maim_10_pillars-instinct-import-style
+trigger: "When importing modules in TypeScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: maim_10_pillars-instinct-export-style
+trigger: "When exporting from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: maim_10_pillars-instinct-test-location
+trigger: "When adding or updating tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+
+---
+id: maim_10_pillars-instinct-git-commit-prefix
+trigger: "When making a commit related to maintenance, documentation, or configuration"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Git Commit Prefix
+
+## Action
+
+Prefix the commit message with 'chore:'
+
+## Evidence
+
+- Seen in commit: chore: add production readiness control (AGENTS.md)
+- Pattern in commits.prefixes: chore
+
+---
+id: maim_10_pillars-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 62 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 62
+
+---
+id: maim_10_pillars-instinct-add-production-readiness-doc
+trigger: "When someone wants to ensure or document production readiness for a component, agent, or the repository as a whole"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: MajorDream444/MAIM_10_Pillars
+---
+
+# Maim_10_pillars Instinct Add Production Readiness Doc
+
+## Action
+
+Create or update the relevant markdown file (AGENTS.md, CLAUDE.md, .github/PRODUCTION_READINESS.md, .github/pull_request_template.md) with production readiness information and commit with a message indicating addition of production readiness control
+
+## Evidence
+
+- Workflow: add-production-readiness-control-documentation
+- Seen in commit: chore: add production readiness control (AGENTS.md)
+
