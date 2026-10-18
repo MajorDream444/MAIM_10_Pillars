@@ -1,0 +1,9 @@
+api/
+backend/
+assets/
+web/
+funnel/
+.claude/
+.codex/
+.agents/
+tests/

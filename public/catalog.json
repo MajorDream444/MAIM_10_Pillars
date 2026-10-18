@@ -1,0 +1,127 @@
+{
+  "pillars": [
+    {
+      "number": 1,
+      "title": "Diaspora Empowerment",
+      "slug": "diaspora-empowerment",
+      "points": [
+        "Building sovereign communities of creators, not consumers",
+        "Reconnecting diaspora talent with homeland innovation",
+        "Creating economic bridges between islands and global markets",
+        "Transforming brain drain into brain circulation"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 2,
+      "title": "Mindset Shift & Resilience",
+      "slug": "mindset-shift-resilience",
+      "points": [
+        "Turning adversity into strategic greatness",
+        "Cultivating psychological frameworks for sustained innovation",
+        "Developing anti-fragile thinking patterns",
+        "Creating wealth consciousness beyond survival programming"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 3,
+      "title": "Gamified Education",
+      "slug": "gamified-education",
+      "points": [
+        "Making learning irresistible and addictive",
+        "Designing challenge-based skill acquisition",
+        "Building community-centered knowledge transfer systems",
+        "Creating play-to-earn educational models"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 4,
+      "title": "Blockchain & Decentralization",
+      "slug": "blockchain-decentralization",
+      "points": [
+        "Restoring ownership, removing middlemen",
+        "Tokenizing community resources and cultural assets",
+        "Creating sovereign financial infrastructure",
+        "Establishing transparent governance systems"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 5,
+      "title": "Community & Collaboration",
+      "slug": "community-collaboration",
+      "points": [
+        "Moving as crews, tribes, DAOs \u2014 not individuals",
+        "Building intergenerational wealth transfer mechanisms",
+        "Designing collective intelligence systems",
+        "Establishing networked resource allocation"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 6,
+      "title": "Localized AI & Personalization",
+      "slug": "localized-ai-personalization",
+      "points": [
+        "Developing tech that speaks the people's language and rhythms",
+        "Training AI models on Caribbean cultural contexts",
+        "Creating regionally-appropriate technological solutions",
+        "Building AI systems that preserve cultural nuance"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 7,
+      "title": "Holistic Wellness & Balance",
+      "slug": "holistic-wellness-balance",
+      "points": [
+        "Protecting mind, body, spirit while scaling empires",
+        "Integrating traditional healing practices with modern health tech",
+        "Building sustainable growth models that prevent burnout",
+        "Creating wealth without sacrificing wellbeing"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 8,
+      "title": "Security & Compliance",
+      "slug": "security-compliance",
+      "points": [
+        "Guarding sovereignty digitally and legally",
+        "Establishing data protection frameworks",
+        "Creating legal structures for cross-border collaboration",
+        "Developing cybersecurity protocols for community protection"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 9,
+      "title": "Data-Driven Performance & Analytics",
+      "slug": "data-driven-performance-analytics",
+      "points": [
+        "Tracking what matters, growing what matters",
+        "Building measurement systems aligned with cultural values",
+        "Creating accountability frameworks for progress",
+        "Developing community-centered data ownership models"
+      ],
+      "checkout_enabled": false
+    },
+    {
+      "number": 10,
+      "title": "Legacy & Long-Term Impact",
+      "slug": "legacy-long-term-impact",
+      "points": [
+        "Building 100-year dynasties, not 1-year hype",
+        "Designing sustainable wealth transfer systems",
+        "Creating intergenerational knowledge repositories",
+        "Establishing cultural preservation through technology"
+      ],
+      "checkout_enabled": false
+    }
+  ],
+  "series": {
+    "checkout_enabled": false
+  }
+}

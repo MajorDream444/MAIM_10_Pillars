@@ -65,3 +65,10 @@ Exception expiry (if any):
 ## Definition of done for coding agents
 
 Codex, Claude Code, and other coding agents must treat this gate as part of the task. They must not claim completion when any applicable item lacks evidence. “Not applicable” requires a written reason.
+
+## 2026-10-18 public catalogue release evidence
+Scope: static catalogue only; commerce and legacy AI portal are not released.
+Tests: python3 scripts/build_catalog.py; python3 -m unittest discover -s tests -p '*_test.py' -v; git diff --check. Covers 10 product paths, series, fail-closed checkout, exclusion of paid PDFs/demo tokens/retired links and static health.
+Observability: build emits structured catalog_build event; /health.json exposes service and checkout state, no personal data. Vercel deployment/build receipts supply release failures. Owner Major Dream Williams; containment: roll back deployment or revert catalogue commit. Dynamic error correlation and provider alerts N/A to static content without JS/API processing.
+Data: public framework markdown -> local static build -> Vercel CDN -> browser. No forms, cookies, analytics, customer records, model calls or payment collection are added. Hosting receives standard request metadata under Vercel account retention/access policy. No paid binaries are copied to public. Legacy source assets remain preserved in Git; pre-existing Git exposure is not solved by catalogue isolation.
+Decision: static catalogue can ship after tests pass; sales remain BLOCKED pending individual edition verification, approved prices, checkout and durable entitlement/delivery tests. New project's public output is restricted to public/; legacy api/chat.js must be disabled in deployment config before release.
