@@ -65,6 +65,10 @@ MAIM_10_Pillars/
 
 ---
 
+## Current commerce direction (2026-10-19)
+
+**Gumroad, Shopify and Kit are retired.** All e-books and bundles will be sold and delivered via the owned Major AI Mindset website with Stripe, Resend and Airtable integrations after checkout and fulfillment validation. The historical product tiers below are reference prices and packages, not verified live SKUs. Individual pillar e-books at approximately $9 are being prepared, with approved covers managed in a separate ongoing workflow. A 10 Pillars companion app (PWA-first), quizzes, private journaling, quests and weekly knowledge-room integration are proposed, not yet deployed. See [the integrated launch handoff](docs/integrations/MAIM_10_PILLARS_MAJOR_MOVES_CONNECTED_LAUNCH_2026-10-19.md).
+
 ## Product Tiers
 
 | Tier | Name | Price | Included |
@@ -113,6 +117,10 @@ Demo tokens:
 
 ---
 
+## Legacy Token Flow (retired; historical reference only — do not implement)
+
+The following Gumroad/n8n example is archived context. The current target is verified Stripe payment → server-side entitlement → owned download/app access. Do not reuse demo tokens for production.
+
 ## Token Flow
 
 ```
@@ -144,6 +152,6 @@ Customer buys on Gumroad
 
 ---
 
-**Major Dream Williams** — [majordream.gumroad.com](https://majordream.gumroad.com)
+**Major Dream Williams** — [Major AI Mindset](https://www.majoraimindset.com/)
 
 *"Freedom was never supposed to be a favor. It was supposed to be our starting point."*
