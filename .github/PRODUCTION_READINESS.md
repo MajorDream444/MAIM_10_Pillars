@@ -111,3 +111,7 @@ Scope: read-only recovery of five native Drive documents, two production writing
 Tests: six attachment hashes and four physical PDF page counts recorded; P01 source boundaries and incomplete Legacy export checked; JSON manifest parses. Runtime/E2E tests and new telemetry N/A to this documentation-only change. Existing cover manifest and application paths not modified. Git object readback verifies persistence. Character counts refer to fetched native text, not native binary checksums.
 
 Data: authorized source reads -> transient local extraction -> minimized inventory/findings in public Git. Private raw content remains in original Drive/Library locations; no new processing integration or customer data. Editorial provenance is supplied by immutable commit/source IDs. Release decision: recovery checkpoint only; publication/commercial release remains HOLD.
+
+## 2026-10-26 phased publishing / MindFluence review
+
+Scope: source-linked upstream marketing-prompt review and proposed quarterly editorial/bundle plan. No third-party prompt imported, skills installed, runtime paths changed or external marketing/publication performed. Tests/telemetry N/A to a documentation-only review; pinned upstream SHA, inspected license, explicit proposals/source limitations and Git readback provide provenance. No customer data, credentials, private stories or provider configuration added. No deployment/checkout changes. Commercial and publication readiness remain dependent on completed approved artifacts, accurate offers and tested fulfillment.
