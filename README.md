@@ -1,5 +1,7 @@
 # 🌊 M.A.I.M. — The 10 Pillars of the Major AI Mindset
 
+> **Publishing recovery catalogue:** [Open the unified asset/source index](books/editorial/RECOVERED_PUBLISHING_CATALOGUE.md) for Pillar Scroll, Emerald Awakening, Vault resources, editable Drive originals and current writing. Historical offers are not release clearance.
+
 > *"The world is not ready. But we are."* — Major Dream Williams
 
 **Building AI-Driven Resilience, Legacy & Ownership for the Caribbean Diaspora — and Beyond.**

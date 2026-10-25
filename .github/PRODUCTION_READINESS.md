@@ -123,3 +123,11 @@ Scope: approximately 2,073-word Chapter 1 and reflection; five remaining chapter
 Tests: UTF-8/whitespace and explicit draft/illustrative labels verified; six proposed chapter headings checked; eleven existing cover hashes verified unchanged. Runtime/E2E/telemetry N/A to Markdown editorial work; no production behavior or services changed. Source IDs, Git version and editorial receipt supply provenance.
 
 Data: recovered conceptual material -> edited draft and explicitly illustrative example -> public Git. No private interview answers, real third-party identifiers, invented founder biography, testimonials, credentials or customer data added. Originals preserved; founder scene intake remains private before permission-aware editorial insertion. No deployment, checkout, pricing or entitlement changes. Decision: draft for founder voice/story review only; book and commercial release remain HOLD.
+
+## 2026-10-26 recovered publishing master catalogue
+
+Scope: central index and machine-readable metadata for sixteen existing PDFs, six newly relevant native Drive documents and supporting funnel/agent sources. Read-only GitHub/three-account Drive search; source originals and permissions unchanged. An old cross-repo zero-prose conclusion is explicitly corrected using inspected artifacts; no blanket final-book/fulfillment certification replaces it.
+
+Validation: PDF SHA-256/page counts recorded; 46 relative catalogue links resolved against the current Git tree/new manifest; JSON serialized; Git readback verifies persistence. Runtime tests/telemetry N/A to documentation/metadata-only changes. Historical provider/commerce statements remain observations from dated documents, not fresh live verification.
+
+Data: authorized file metadata and bounded source screening -> minimized public catalogue and source pointers. No private transcript corpus, personal founder account, credentials, order/customer data or third-party full text published. No assets moved/deleted, sharing changed, messages sent, new integrations executed, deployments made or checkout activated. Decision: recovered source catalogue only, current writing continues; individual releases still need evidence.

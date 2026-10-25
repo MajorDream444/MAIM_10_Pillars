@@ -1,0 +1,271 @@
+{
+  "observed_date": "2026-10-26",
+  "scope": "publishing recovery; no live commercial readiness verification",
+  "source_base": "c1097afb555ea8382220595d13c706b70fae991a",
+  "pdf_assets": [
+    {
+      "id": "PDF-01",
+      "path": "assets/tier1/MAIM_Concept_Map.pdf",
+      "bytes": 4263,
+      "sha256": "3c88194c9e5580a6004cbdfc888d3d95e72bac6372160f573ab544fd26a0dcf2",
+      "pages": 1,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-02",
+      "path": "assets/tier1/MAIM_Oath_Wallpaper_Desktop.pdf",
+      "bytes": 2637,
+      "sha256": "31614da2cbf0b70ffba90589f9ae27702fdbbbcfcddaadad7d34ffa30c59ee67",
+      "pages": 1,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-03",
+      "path": "assets/tier1/MAIM_Oath_Wallpaper_Mobile.pdf",
+      "bytes": 2673,
+      "sha256": "bc994b857064d6ebe995329d85261d9bf0799e05dfd3cba7c9d9ba4698d87639",
+      "pages": 1,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-04",
+      "path": "assets/tier1/MAIM_Pillar_Scroll_Book.pdf",
+      "bytes": 28294,
+      "sha256": "89e51fb01c058ebbbad9a91b2588926c5abc70c288d406d1cf546a7fc7f19ea3",
+      "pages": 16,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-05",
+      "path": "assets/tier1/MAIM_Which_Pillar_Are_You_Quiz.pdf",
+      "bytes": 11135,
+      "sha256": "66a0f405f0ce79acf70924eda28370257b9ecf2b4f66da2a801ba7110b134f77",
+      "pages": 6,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-06",
+      "path": "assets/tier2/MAIM_2757_Vision_Poster.pdf",
+      "bytes": 2700,
+      "sha256": "03d9ad5071223e77450482ea4f017f8a1e16b6b2347a3c341f19add8722a12bc",
+      "pages": 1,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-07",
+      "path": "assets/tier2/MAIM_Course_Curricula_Overview.pdf",
+      "bytes": 9101,
+      "sha256": "d17cd0a3535caf5e992763954c02624a7a58bc683c187acfbd01d22c672e8cf3",
+      "pages": 4,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-08",
+      "path": "assets/tier2/MAIM_Emerald_Awakening_Book.pdf",
+      "bytes": 26958,
+      "sha256": "935b93dd14c34990d8bae0206d12c3e529275beccbda849245b26fef1deccd0a",
+      "pages": 13,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-09",
+      "path": "assets/tier2/MAIM_Emerald_Tablet_Artwork.pdf",
+      "bytes": 4356,
+      "sha256": "5167f1a156ef8eb04ef76c61274ac8b0443977b3a2c6e2d8f9278a31bdc15c2e",
+      "pages": 1,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-10",
+      "path": "assets/tier2/MAIM_Journal_Prompts.pdf",
+      "bytes": 20321,
+      "sha256": "ff8800f75d54e5fcb6df785f434024df9fbd9fd43cdba9764e3544bc9687bda5",
+      "pages": 13,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-11",
+      "path": "assets/tier3/MAIM_30_60_90_Roadmap.pdf",
+      "bytes": 14031,
+      "sha256": "6e9d9d8225fc9e461fc088beb2343135df6bacf1480b11d826ede09eb04ec202",
+      "pages": 7,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-12",
+      "path": "assets/tier3/MAIM_Business_Model_Canvas.pdf",
+      "bytes": 10727,
+      "sha256": "c5ba93ce090f5d954320bd5f91a7a8eeed612703474084736796f5338433663a",
+      "pages": 6,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-13",
+      "path": "assets/tier3/MAIM_DAO_Wealth_Collective_Guide.pdf",
+      "bytes": 10650,
+      "sha256": "100f2123cf038aa242755d3004a71dd87a932eebdd28765c683bfd5498849d8d",
+      "pages": 5,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-14",
+      "path": "assets/tier3/MAIM_Dynasty_Vault_Guide.pdf",
+      "bytes": 11785,
+      "sha256": "5b3373ade15518a1c2f8f7ae4c29e6bb93789e096ce299dec95d1876fc7db1fa",
+      "pages": 6,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-15",
+      "path": "assets/tier3/MAIM_Legacy_Planning_Document.pdf",
+      "bytes": 10674,
+      "sha256": "7ba91e955267c1f56c8297da5495dd5ed7742cd6cba4a6e6845c39f323bff702",
+      "pages": 7,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "PDF-16",
+      "path": "funnel/MAIM_Free_Guide_5_AI_Moves.pdf",
+      "bytes": 13817,
+      "sha256": "42f6a2d3a54a6fed4a08c48f03ccefed1a34115fa4f0857eee507d4f0a58d964",
+      "pages": 7,
+      "inspection": "PDF metadata/text extracted; no final visual/rights/release certification",
+      "status": "recovered_needs_review"
+    }
+  ],
+  "native_documents": [
+    {
+      "id": "174xKAo5j6xzYd63LofdRbKBUfwDwovGgf0v4JEQ6Hcw",
+      "account": "ArtMobAGI",
+      "title": "“10 Pillars of the Major AI Mindset – DELUXE EDITION",
+      "url": "https://docs.google.com/document/d/174xKAo5j6xzYd63LofdRbKBUfwDwovGgf0v4JEQ6Hcw",
+      "modified_time": "2025-06-12T08:08:31.011Z",
+      "text_characters": 19575,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "1Mo5KqIQrqBf-f8QcauQ0NVKKq4RfM-0Sw5lyy_BsrQk",
+      "account": "ArtMobAGI",
+      "title": "“10 Pillars of the Major AI Mindset – COMPREHENSIVE LEGACY EDITION”",
+      "url": "https://docs.google.com/document/d/1Mo5KqIQrqBf-f8QcauQ0NVKKq4RfM-0Sw5lyy_BsrQk",
+      "modified_time": "2025-06-12T08:05:49.111Z",
+      "text_characters": 81950,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "1kulxbqQmLClfo0kvHPGpgovqpb-MPOf5sbK1S8132cA",
+      "account": "ArtMobAGI",
+      "title": "The 10 Pillars of the Major AI Mindset — Core E-Book Overview",
+      "url": "https://docs.google.com/document/d/1kulxbqQmLClfo0kvHPGpgovqpb-MPOf5sbK1S8132cA",
+      "modified_time": "2025-06-12T08:07:21.106Z",
+      "text_characters": 6782,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "1qVnY-U5JDY6Se35L-Pg1Caa-LY5VWPeSnjxRCnrtiKQ",
+      "account": "ArtMobAGI",
+      "title": "📘 BOOK 1: The 10 Pillars of the Major AI Mindset",
+      "url": "https://docs.google.com/document/d/1qVnY-U5JDY6Se35L-Pg1Caa-LY5VWPeSnjxRCnrtiKQ",
+      "modified_time": "2025-06-06T05:45:40.882Z",
+      "text_characters": 70280,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "1NNPk3-ChXT2leKT4Ts6rZYkK2MH1UVlmdCiAuSovr6s",
+      "account": "ArtMobAGI",
+      "title": "The 10 Money Come-mandments 10 e-Books (MAIM)",
+      "url": "https://docs.google.com/document/d/1NNPk3-ChXT2leKT4Ts6rZYkK2MH1UVlmdCiAuSovr6s",
+      "modified_time": "2025-06-11T08:24:37.310Z",
+      "text_characters": 242496,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    },
+    {
+      "id": "1skLFMOMwkvGbSSd99l8LXG5vL6fg4cWDgQd0QYvf_aU",
+      "account": "Systems",
+      "title": "Major Moves Series | MAIM | 10 Pillars Series",
+      "url": "https://docs.google.com/document/d/1skLFMOMwkvGbSSd99l8LXG5vL6fg4cWDgQd0QYvf_aU",
+      "modified_time": "2026-06-28T04:12:56.765Z",
+      "text_characters": 14939,
+      "inspection": "native text fetched; relevant sections/structure screened; not final rights/factual/voice audit",
+      "status": "recovered_needs_review"
+    }
+  ],
+  "searches": [
+    {
+      "account": "ArtMobAGI",
+      "query_scope": "MAIM/Mindset/Pillar/Emerald names",
+      "returned": 60,
+      "limit": 100,
+      "exhaustive": false
+    },
+    {
+      "account": "ArtMobAGI",
+      "query_scope": "Pillar/Emerald/Gumroad/Dynasty/Activation names",
+      "returned": 14,
+      "limit": 100,
+      "exhaustive": false
+    },
+    {
+      "account": "Systems",
+      "query_scope": "MAIM/Mindset/Pillar/Emerald names",
+      "returned": 100,
+      "limit": 100,
+      "exhaustive": false
+    },
+    {
+      "account": "Systems",
+      "query_scope": "Pillar/Emerald/Gumroad/Dynasty/Activation names",
+      "returned": 14,
+      "limit": 100,
+      "exhaustive": false
+    },
+    {
+      "account": "Hanzo",
+      "query_scope": "MAIM/Mindset/Pillar/Emerald names",
+      "returned": 1,
+      "limit": 100,
+      "exhaustive": false
+    },
+    {
+      "account": "Hanzo",
+      "query_scope": "Pillar/Emerald/Gumroad/Dynasty/Activation names",
+      "returned": 0,
+      "limit": 100,
+      "exhaustive": false
+    }
+  ],
+  "not_found_in_bounded_scope": [
+    "verified final meditation/music pack",
+    "verified separate final Pillar Activation audio"
+  ],
+  "uninspected_discovery_leads": [
+    {
+      "id": "1mbSMpww2MQS-aS0R50UhwwoGXRXpmlIN",
+      "title": "Major Mindset Book & Workbook folder"
+    },
+    {
+      "id": "1O-K5MKXteM_zfjEM4JqPSMPdwf2LAUiVe9-SF-ZiP50",
+      "title": "pillars and subpillars"
+    }
+  ]
+}
