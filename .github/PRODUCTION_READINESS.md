@@ -131,3 +131,9 @@ Scope: central index and machine-readable metadata for sixteen existing PDFs, si
 Validation: PDF SHA-256/page counts recorded; 46 relative catalogue links resolved against the current Git tree/new manifest; JSON serialized; Git readback verifies persistence. Runtime tests/telemetry N/A to documentation/metadata-only changes. Historical provider/commerce statements remain observations from dated documents, not fresh live verification.
 
 Data: authorized file metadata and bounded source screening -> minimized public catalogue and source pointers. No private transcript corpus, personal founder account, credentials, order/customer data or third-party full text published. No assets moved/deleted, sharing changed, messages sent, new integrations executed, deployments made or checkout activated. Decision: recovered source catalogue only, current writing continues; individual releases still need evidence.
+
+## 2026-10-26 founder voice source intake
+
+Scope: neutral receipt recording one private founder transcript and a privately retained editorial derivative. No raw transcript, family details, quotations or sensitive factual allegations added to public Git. Raw SHA-256 unchanged; eight exact text anchors checked privately; proposed opening/clip are explicitly edited candidates; MP4/audio inspection not yet performed. Private packet saved separately with persistent identity.
+
+Runtime tests/telemetry N/A to a private editorial intake/metadata receipt. Existing source IDs, byte fingerprint, intake status and Git readback supply provenance. No public manuscript autobiographical rewrite or final historical/legal certification implied. No external publishing, voice cloning, new customer collection, deployments or checkout changes. Continue source-backed editorial work; release remains separate.
