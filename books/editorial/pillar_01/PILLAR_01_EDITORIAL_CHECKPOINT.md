@@ -1,3 +1,5 @@
+> **Complete first draft, 26 October 2026:** [Diaspora Empowerment v0.2](../../manuscripts/MAIM_P01_Diaspora_Empowerment_v0.2.md) now contains all six chapters, exercises, Major Moves and credited influences (approximately 6,631 words including notes). Read the [v0.2 editorial receipt](p01_v0_2_editorial_receipt.md) for passage lineage and next steps. Earlier opening-only statements below are historical. Next stage: founder voice review and copyedit, then production formatting; no approved release is asserted.
+
 # Pillar 01 editorial checkpoint — Diaspora Empowerment
 
 > Draft started, 26 October 2026: [v0.1 working manuscript](../../manuscripts/MAIM_P01_Diaspora_Empowerment_v0.1.md) contains Chapter 1 plus an outline for Chapters 2–6. Read the [editorial receipt](p01_v0_1_editorial_receipt.md) for source mapping and remaining founder input. This does not establish a completed book.

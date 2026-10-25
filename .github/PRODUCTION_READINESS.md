@@ -137,3 +137,10 @@ Data: authorized file metadata and bounded source screening -> minimized public 
 Scope: neutral receipt recording one private founder transcript and a privately retained editorial derivative. No raw transcript, family details, quotations or sensitive factual allegations added to public Git. Raw SHA-256 unchanged; eight exact text anchors checked privately; proposed opening/clip are explicitly edited candidates; MP4/audio inspection not yet performed. Private packet saved separately with persistent identity.
 
 Runtime tests/telemetry N/A to a private editorial intake/metadata receipt. Existing source IDs, byte fingerprint, intake status and Git readback supply provenance. No public manuscript autobiographical rewrite or final historical/legal certification implied. No external publishing, voice cloning, new customer collection, deployments or checkout changes. Continue source-backed editorial work; release remains separate.
+
+
+## 26 October 2026 — Pillar 01 complete first-draft manuscript
+
+Scope: editorial-only v0.2 manuscript, receipt, continuation pointer and manuscript index. All six substantive chapters written, approximately 6,631 words including notes. Six exercises, six Major Moves, four source notes, UTF-8/no trailing whitespace and absence of TODO/outline-only markers checked. Source-derived historical passages bounded and credited; hypothetical example explicitly labelled. Self-review recorded in books/editorial/pillar_01/p01_v0_2_editorial_receipt.md.
+
+Tests: prose structure/source-linkage checks applicable; software tests N/A because no runtime behavior changed. Observability: N/A, no production paths or processing added. Data/PII: no raw transcript, private family detail, contacts or private corpus committed; edited founder account used under current book-writing instruction. Only manuscript/editorial documentation changed; all cover, code, configuration, checkout and deployment paths retained from base. No external publication or release action. Commercial readiness not changed. Founder approval, copyedit and formatted-output QA remain before release.
