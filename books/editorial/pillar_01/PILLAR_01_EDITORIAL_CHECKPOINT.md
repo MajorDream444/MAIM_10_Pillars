@@ -1,5 +1,7 @@
 # Pillar 01 editorial checkpoint — Diaspora Empowerment
 
+> Draft started, 26 October 2026: [v0.1 working manuscript](../../manuscripts/MAIM_P01_Diaspora_Empowerment_v0.1.md) contains Chapter 1 plus an outline for Chapters 2–6. Read the [editorial receipt](p01_v0_1_editorial_receipt.md) for source mapping and remaining founder input. This does not establish a completed book.
+
 > Recovery update, 26 October 2026: read the [Drive and attachment addendum](archive_recovery_addendum.md) before continuing. Expanded P01 prose and the older Major Moves workbook lineage are now recovered; earlier uninspected-source notes below describe the initial checkpoint only.
 
 26 October 2026 · Editorial recovery and planning only · Base: `1fa7bdc3ab98cbb0f3d66b078f900b2b9f8cd0a4`

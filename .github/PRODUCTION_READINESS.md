@@ -115,3 +115,11 @@ Data: authorized source reads -> transient local extraction -> minimized invento
 ## 2026-10-26 phased publishing / MindFluence review
 
 Scope: source-linked upstream marketing-prompt review and proposed quarterly editorial/bundle plan. No third-party prompt imported, skills installed, runtime paths changed or external marketing/publication performed. Tests/telemetry N/A to a documentation-only review; pinned upstream SHA, inspected license, explicit proposals/source limitations and Git readback provide provenance. No customer data, credentials, private stories or provider configuration added. No deployment/checkout changes. Commercial and publication readiness remain dependent on completed approved artifacts, accurate offers and tested fulfillment.
+
+## 2026-10-26 Pillar 01 manuscript v0.1
+
+Scope: approximately 2,073-word Chapter 1 and reflection; five remaining chapter outlines; source-to-chapter map and editorial receipt. Only the opening chapter is drafted. No completed-book, publication, clinical, financial, legal-compliance or commercial-readiness claim.
+
+Tests: UTF-8/whitespace and explicit draft/illustrative labels verified; six proposed chapter headings checked; eleven existing cover hashes verified unchanged. Runtime/E2E/telemetry N/A to Markdown editorial work; no production behavior or services changed. Source IDs, Git version and editorial receipt supply provenance.
+
+Data: recovered conceptual material -> edited draft and explicitly illustrative example -> public Git. No private interview answers, real third-party identifiers, invented founder biography, testimonials, credentials or customer data added. Originals preserved; founder scene intake remains private before permission-aware editorial insertion. No deployment, checkout, pricing or entitlement changes. Decision: draft for founder voice/story review only; book and commercial release remain HOLD.
