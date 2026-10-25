@@ -79,3 +79,15 @@ Tests: cover count, PNG decoding and SHA-256 manifest verified; git diff --check
 Observability: checksum manifest and Git commit provide artifact provenance. Runtime logs/alerts N/A to static source asset archival.
 Data: generated illustrative artwork -> Git source archive and existing private Drive production folder. No customer data, credentials, actual athlete data or new collection. Sharing permissions unchanged. Existing rejected source images excluded from approved copies, retained only as original generation history. Proposed commerce data flows and consent boundaries documented in books/PRODUCTION_AND_COMMUNITY_PLAN.md; not implemented.
 Decision: asset/document archival only; commercial release remains BLOCKED pending finished editions and tested fulfillment.
+
+## 2026-10-26 Pillar 01 editorial recovery checkpoint
+
+Scope: source inventory, recovered repository-native PDF passages, source hash manifest, evidence ledger, proposed outline and founder questions only. No runtime behavior, deployment configuration, public catalogue, checkout or product/entitlement changes.
+
+Tests: source SHA-256 fingerprints, recovered physical page locators, eleven approved-cover manifest checksums and `git diff --check` verified. New automated behavior/E2E/failure-path tests N/A: documentation-only change. Existing catalogue suite run as regression verification; no build output regenerated.
+
+Observability: Git history, immutable base SHA, source IDs, page references and fingerprint manifest provide editorial provenance. New runtime telemetry/alerts N/A: no new execution path or service.
+
+Data/PII: supplied documents -> local text extraction -> source inventory and limited editorial findings in public Git. Full user attachments and third-party banking deck not republished. Existing repository-native P01 passages extracted into Markdown; originals preserved. No customer records, contact lists, raw interview answers, credentials or new processors added. Founder questions explicitly require private intake and permission before publication of third-party stories. Public Git is durable: never use this checkpoint folder as private intake storage; minimize any later approved story publication and follow repository-owner policy for removal requests.
+
+Decision: editorial checkpoint only. Commercial release remains HOLD pending finished approved editions and tested fulfillment; no deployment or checkout activation authorized.

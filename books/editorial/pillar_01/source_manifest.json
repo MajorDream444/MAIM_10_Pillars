@@ -1,0 +1,98 @@
+[
+  {
+    "id": "U01",
+    "filename": "01-Major-Ai-Mindset-Ebook.pdf",
+    "sha256": "4d03b0e0e81d7bf256c7aad72ce8f1682cd92e425f0ab86932f21957d87f0442",
+    "bytes": 30251,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 7
+  },
+  {
+    "id": "U02",
+    "filename": "02-ChatGPT-Image-Jun-6-2025-12_48_45-PM.png",
+    "sha256": "bc2861dfb7e66f9690939ef9f3d4da29eae251d50c1b6b992c486b1581627164",
+    "bytes": 2683674,
+    "origin": "user attachment; original not copied into public Git"
+  },
+  {
+    "id": "U03",
+    "filename": "03-10-pillars.pdf",
+    "sha256": "5cafbfc942b3e94f8f5336b0c203418bcc56a7a028c35dc7e3df7620fbce2caf",
+    "bytes": 87480,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 4
+  },
+  {
+    "id": "U04",
+    "filename": "04-10-pillars-4-.pdf",
+    "sha256": "3748ab10a8280368a1d86da7d97e872ef72b35efb32ca2fd04758beec0907142",
+    "bytes": 88312,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 4
+  },
+  {
+    "id": "U05",
+    "filename": "05-10-pillars-3-.pdf",
+    "sha256": "e51146599850bc4b24e4d1f7a69db8de4a678fcf93397dbb33b8f1db2d179d80",
+    "bytes": 178929,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 6
+  },
+  {
+    "id": "U06",
+    "filename": "06-10-pillars-2-.pdf",
+    "sha256": "177917e5624a7d4059399bf7e413cc375cf9eb1e49ea59e5b3dda3a27ab3da7b",
+    "bytes": 98031,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 4
+  },
+  {
+    "id": "U07",
+    "filename": "07-10-pillars-1-.pdf",
+    "sha256": "f4d281a4fb9b9339c7c018ca669102712d0e2e736e3581ff33102d79b7d80be6",
+    "bytes": 82593,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 2
+  },
+  {
+    "id": "U08",
+    "filename": "08-213327107-History-of-Banking-Asian-Perspective.pdf",
+    "sha256": "93ce1f8c45d6fc539fa9fda2db9ff91f56a4740cd7a90b4089c4cf3ec9871bea",
+    "bytes": 2904490,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 226
+  },
+  {
+    "id": "U09",
+    "filename": "09-The-10-Pillars-of-the-Major-AI-Mindset.pdf",
+    "sha256": "93547830140cf8ebae44446ef80883981e61777fa1d52db9220074f56ffb26d8",
+    "bytes": 105213,
+    "origin": "user attachment; original not copied into public Git",
+    "pdf_pages": 4
+  },
+  {
+    "id": "R01",
+    "path": "assets/tier1/MAIM_Pillar_Scroll_Book.pdf",
+    "sha256": "89e51fb01c058ebbbad9a91b2588926c5abc70c288d406d1cf546a7fc7f19ea3",
+    "recovered_pdf_pages": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": "R02",
+    "path": "assets/tier2/MAIM_Emerald_Awakening_Book.pdf",
+    "sha256": "935b93dd14c34990d8bae0206d12c3e529275beccbda849245b26fef1deccd0a",
+    "recovered_pdf_pages": [
+      3
+    ]
+  },
+  {
+    "id": "R03",
+    "path": "assets/tier2/MAIM_Journal_Prompts.pdf",
+    "sha256": "ff8800f75d54e5fcb6df785f434024df9fbd9fd43cdba9764e3544bc9687bda5",
+    "recovered_pdf_pages": [
+      3
+    ]
+  }
+]
