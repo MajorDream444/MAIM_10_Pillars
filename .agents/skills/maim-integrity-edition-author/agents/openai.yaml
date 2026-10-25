@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Integrity Edition Author"
+  short_description: "Write distinct adult, teen and child editions"
+  default_prompt: "Use $maim-integrity-edition-author to continue the current MAIM book project from its sources."

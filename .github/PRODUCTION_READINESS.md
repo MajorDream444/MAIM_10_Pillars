@@ -91,3 +91,15 @@ Observability: Git history, immutable base SHA, source IDs, page references and 
 Data/PII: supplied documents -> local text extraction -> source inventory and limited editorial findings in public Git. Full user attachments and third-party banking deck not republished. Existing repository-native P01 passages extracted into Markdown; originals preserved. No customer records, contact lists, raw interview answers, credentials or new processors added. Founder questions explicitly require private intake and permission before publication of third-party stories. Public Git is durable: never use this checkpoint folder as private intake storage; minimize any later approved story publication and follow repository-owner policy for removal requests.
 
 Decision: editorial checkpoint only. Commercial release remains HOLD pending finished approved editions and tested fulfillment; no deployment or checkout activation authorized.
+
+## 2026-10-26 shared MAIM publishing team
+
+Scope: six source-controlled editorial skills, six Codex agent role definitions/registrations, working collection map, registry and validation receipt. Existing skills reused for voice and design. No application, web deployment, checkout or manuscript release changes.
+
+Tests: six skill structural validations; six TOML role files plus Codex configuration parsed; five fresh-context qualitative workflow scenarios; existing catalogue regression suite; eleven approved cover hashes; git diff --check. Config loading in a new host session and external publishing workflows remain untested, so no operational autonomy or commercial release claim is made.
+
+Observability: versioned role/skill registry, Git commits and validation receipt. No new production runtime path, scheduled process, telemetry or alerts; those controls are N/A for these instruction/configuration artifacts.
+
+Data/PII: public collection metadata and editorial instructions -> Skills Git workspace and repository. No private founder interviews, customer records, child disclosures, credentials or uploaded third-party full text included. Future private intake stays outside public Git. No new external processor/API integration or account permissions created.
+
+Decision: instruction/configuration delivery only. Manuscript publication, print certification and commercial release remain separate and blocked until their actual evidence is available. No deployment or checkout activation authorized.

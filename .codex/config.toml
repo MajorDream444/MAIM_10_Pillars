@@ -46,3 +46,26 @@ config_file = "agents/reviewer.toml"
 [agents.docs_researcher]
 description = "Documentation specialist that verifies APIs, framework behavior, and release notes."
 config_file = "agents/docs-researcher.toml"
+[agents.publishing_director]
+description = "Maim Publishing Director — source-backed editorial production."
+config_file = "agents/maim-publishing-director.toml"
+
+[agents.book_source_archivist]
+description = "Maim Book Source Archivist — source-backed editorial production."
+config_file = "agents/maim-book-source-archivist.toml"
+
+[agents.book_author]
+description = "Maim Book Author — source-backed editorial production."
+config_file = "agents/maim-book-author.toml"
+
+[agents.integrity_edition_author]
+description = "Maim Integrity Edition Author — source-backed editorial production."
+config_file = "agents/maim-integrity-edition-author.toml"
+
+[agents.book_evidence_editor]
+description = "Maim Book Evidence Editor — source-backed editorial production."
+config_file = "agents/maim-book-evidence-editor.toml"
+
+[agents.book_production_editor]
+description = "Maim Book Production Editor — source-backed editorial production."
+config_file = "agents/maim-book-production-editor.toml"
