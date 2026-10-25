@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Book Source Archivist"
+  short_description: "Recover existing writing before new book drafts"
+  default_prompt: "Use $maim-book-source-archivist to continue the current MAIM book project from its sources."

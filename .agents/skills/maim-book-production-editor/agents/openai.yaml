@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Book Production Editor"
+  short_description: "Prepare reviewed books and publishing handoffs"
+  default_prompt: "Use $maim-book-production-editor to continue the current MAIM book project from its sources."

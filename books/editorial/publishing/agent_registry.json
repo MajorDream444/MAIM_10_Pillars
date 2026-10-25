@@ -1,0 +1,146 @@
+[
+  {
+    "name": "maim-publishing-director",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-publishing-director/SKILL.md",
+    "agent_key": "publishing_director",
+    "config_path": ".codex/agents/maim-publishing-director.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  },
+  {
+    "name": "maim-book-source-archivist",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-book-source-archivist/SKILL.md",
+    "agent_key": "book_source_archivist",
+    "config_path": ".codex/agents/maim-book-source-archivist.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  },
+  {
+    "name": "maim-book-author",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-book-author/SKILL.md",
+    "agent_key": "book_author",
+    "config_path": ".codex/agents/maim-book-author.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  },
+  {
+    "name": "maim-integrity-edition-author",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-integrity-edition-author/SKILL.md",
+    "agent_key": "integrity_edition_author",
+    "config_path": ".codex/agents/maim-integrity-edition-author.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  },
+  {
+    "name": "maim-book-evidence-editor",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-book-evidence-editor/SKILL.md",
+    "agent_key": "book_evidence_editor",
+    "config_path": ".codex/agents/maim-book-evidence-editor.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  },
+  {
+    "name": "maim-book-production-editor",
+    "version": "0.1.0",
+    "skill_path": ".agents/skills/maim-book-production-editor/SKILL.md",
+    "agent_key": "book_production_editor",
+    "config_path": ".codex/agents/maim-book-production-editor.toml",
+    "status": "configured",
+    "validation_state": "structurally_validated",
+    "execution": "invoked by an active coding agent; no scheduler or deployed service",
+    "model": "inherited",
+    "inputs": [
+      "collection_id",
+      "source_refs",
+      "reader_goal",
+      "current_artifact"
+    ],
+    "outputs": [
+      "versioned_artifact",
+      "source_map",
+      "status",
+      "checks",
+      "blockers"
+    ]
+  }
+]

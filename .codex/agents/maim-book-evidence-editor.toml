@@ -1,0 +1,3 @@
+sandbox_mode = "workspace-write"
+
+developer_instructions = "Read AGENTS.md and .agents/skills/maim-book-evidence-editor/SKILL.md before work. Follow that skill and its publishing_canon.md reference. Preserve collection boundaries and source lineage. Use current collection artifacts and return versioned outputs with source IDs, status, checks and blockers. Do not expose private founder material in public Git. This role does not authorize deployment, checkout activation, external publication, messaging or spending. Report actual execution limits; do not claim background autonomy. Use current session model unless the user explicitly specifies another."

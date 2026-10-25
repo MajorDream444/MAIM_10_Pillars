@@ -1,0 +1,17 @@
+# MAIM publishing universe — working editorial map, 26 October 2026
+
+Treat MAIM as the shared identity, not a requirement to merge manuscripts. Keep four collection IDs:
+- ten-pillars: the framework for building, ownership and community. Recover canonical writing first. Preserve all ten repository names, including Data-Driven Performance & Analytics, and eleven approved covers/two P09 options.
+- major-moves: founder experience, visual stories and practical moves. Keep original images, source IDs and stories distinct from doctrine. The twelve visual seeds include Bottleneck, Bridge and Gardener; titles are seeds, not proof that books are finished.
+- integrity: truth, trust, character and personal governance. Preserve 20 principles plus eight governance doctrines, mapped into ten flagship lessons only from actual canonical source text. Edition identities: The Architecture of Integrity (18+), The Integrity Code (13–17), The Truth Compass (7–12). Independently write age-appropriate scenes. Never invent missing principles to reach a count.
+- money-come-andments: financial/spiritual stewardship and legacy. Preserve uploaded title spelling “The 10 Money Come-andments” until founder deliberately changes it; “Money Commandments” is a conversational alias. Historical list: MEASURE, THINK, FEEL, SPEAK, ASK, HOLD, USE, MANIFEST, ATTRACT, ENJOY. Recover source/version and rights before adapting; supplied text alone does not prove original authorship or publication permission. This is not the same ten-item list as Ten Pillars.
+
+Connect collections through explicit references, not fused numbering. Example proposed editorial bridge: a Major Moves Bottleneck story could illustrate a Ten Pillars collaboration lesson; an Integrity lesson could examine the honesty of delegation; a Money lesson could discuss stewardship. These mappings require source review and must be labelled proposed.
+
+Keep ABCs (Awareness, Belief, Context; Direction, Experiment extension; Environment complementary) and Lucky Library distinct. Keep the $249 Academy offer separate; ebook ownership implies no coaching or Academy entitlement. App features, badges, bundle prices and historical tiers remain proposals unless independently verified. No automatic publishing, messaging, deployment, checkout activation or purchases.
+
+Use MAIM, HAMAL and Major Dream Williams exactly. Preserve approved MD marks, actual author photo and original covers. Pair visual production with maim-brand-asset-steward and maim-integrity-publishing-design where relevant. Missing assets block visual output, not unrelated writing. Use existing Major Voice & Doctrine / Raw Thought Intake skills when available; no invented biography, endorsements, quotes, results or credentials. Preserve raw founder material privately, never in public Git.
+
+Authority order: current founder instruction → collection-specific approved canon/source → repository editorial checkpoint → proposals. Mark conflict and source provenance; do not silently overwrite. The publishing universe map itself is a working organizational proposal, not a new approved doctrine.
+
+For Ten Pillars start in MajorDream444/MAIM_10_Pillars, branch editorial/pillar-01-source-recovery-2026-10-26, books/editorial/pillar_01/PILLAR_01_EDITORIAL_CHECKPOINT.md and recovered_source_writing.md. Resolve latest ref before editing. For other collections, locate their actual canonical repo/files; do not create duplicate manuscript homes in Ten Pillars just because it is open.

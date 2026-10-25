@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Publishing Director"
+  short_description: "Route four collections through one editorial team"
+  default_prompt: "Use $maim-publishing-director to continue the current MAIM book project from its sources."

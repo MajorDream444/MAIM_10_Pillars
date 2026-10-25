@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Book Evidence Editor"
+  short_description: "Check sources, voice, rights and collection boundaries"
+  default_prompt: "Use $maim-book-evidence-editor to continue the current MAIM book project from its sources."

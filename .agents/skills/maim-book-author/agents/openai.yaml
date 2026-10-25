@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAIM Book Author"
+  short_description: "Write source-backed chapters in Major’s voice"
+  default_prompt: "Use $maim-book-author to continue the current MAIM book project from its sources."
