@@ -1,5 +1,7 @@
 # MAIM publishing universe — working editorial map, 26 October 2026
 
+> Recovery update, 26 October 2026: read the [Drive and attachment addendum](../pillar_01/archive_recovery_addendum.md) before continuing. Expanded P01 prose and the older Major Moves workbook lineage are now recovered; earlier uninspected-source notes below describe the initial checkpoint only.
+
 Treat MAIM as the shared identity, not a requirement to merge manuscripts. Keep four collection IDs:
 - ten-pillars: the framework for building, ownership and community. Recover canonical writing first. Preserve all ten repository names, including Data-Driven Performance & Analytics, and eleven approved covers/two P09 options.
 - major-moves: founder experience, visual stories and practical moves. Keep original images, source IDs and stories distinct from doctrine. The twelve visual seeds include Bottleneck, Bridge and Gardener; titles are seeds, not proof that books are finished.

@@ -1,0 +1,97 @@
+{
+  "retrieved_on": "2026-10-26",
+  "attachments": [
+    {
+      "id": "N10",
+      "filename": "10_Pillars_Workbook.docx",
+      "sha256": "5fbf5dec810ff69dfb18080413ebdb5528a6ef5c4349ff89fd5253bf81f7cc3e",
+      "bytes": 38284,
+      "library_file_id": "libfile_33b92a2e4e288191b55b04d6d0271243"
+    },
+    {
+      "id": "N11",
+      "filename": "BOOK 1_ The 10 Pillars of the Major AI Mindset (1).pdf",
+      "sha256": "c77a9e64941a136b3e7fa1c2125ad9d2c03f106d60c4ef1d2241167968945ab0",
+      "bytes": 5245306,
+      "library_file_id": "libfile_6841d6e4099c819190145074301594a7",
+      "physical_pdf_pages": 17
+    },
+    {
+      "id": "N12",
+      "filename": "Book1_10_Pillars_Major_AI_Mindset_FULL.pdf",
+      "sha256": "01e2713afadba997d37750813459c1d768716ed5d7f10b67ee9b73786043d34f",
+      "bytes": 2130,
+      "library_file_id": "libfile_efe4a137ad888191a60ddca6e68af01c",
+      "physical_pdf_pages": 2
+    },
+    {
+      "id": "N13",
+      "filename": "book-series-outlines.md",
+      "sha256": "4d3e000018ad7f9f0b136f389f7ea055dfefa0302dc14852f87b653e0fc01e92",
+      "bytes": 14237,
+      "library_file_id": "libfile_f87e41435fc88191bc379b0d54279542"
+    },
+    {
+      "id": "N14",
+      "filename": "“10 Pillars of the Major AI Mindset – COMPREHENSIVE LEGACY EDITION”.pdf",
+      "sha256": "073657d6b533284bf0307bc19f44b3517d94fe823a605a8089ede4b35639a440",
+      "bytes": 5671337,
+      "library_file_id": "libfile_1d044aa7acc88191ab970988b389c99f",
+      "physical_pdf_pages": 50
+    },
+    {
+      "id": "N15",
+      "filename": "“10 Pillars of the Major AI Mindset – DELUXE EDITION.pdf",
+      "sha256": "5873ac320066696d7da84730ead4d96100f74143a32292d005068f176895d787",
+      "bytes": 5332682,
+      "library_file_id": "libfile_503a5be536888191a9d30d5799a22c17",
+      "physical_pdf_pages": 27
+    }
+  ],
+  "drive_sources": [
+    {
+      "id": "D01",
+      "drive_file_id": "1vKFVTfScxcObJ8CUiThMRf8jYl3ZpQaeo21SXewk8HI",
+      "title": "The 10 Pillars of the Major AI Mindset",
+      "modified_time": "2025-06-05T10:15:31.764Z",
+      "text_characters": 107757,
+      "source_url": "https://docs.google.com/document/d/1vKFVTfScxcObJ8CUiThMRf8jYl3ZpQaeo21SXewk8HI",
+      "scope": "native text fetched; relevant sections inspected"
+    },
+    {
+      "id": "D02",
+      "drive_file_id": "1kzSuMeQ89A-gTShzfqBAq05wBXmcwPfmWamogt_HFHM",
+      "title": "I'd be happy to help you start writing the first book in your e-book series on the 10 Pillars of the Major AI Mindset",
+      "modified_time": "2025-05-02T04:33:05.153Z",
+      "text_characters": 458902,
+      "source_url": "https://docs.google.com/document/d/1kzSuMeQ89A-gTShzfqBAq05wBXmcwPfmWamogt_HFHM",
+      "scope": "native text fetched; relevant sections inspected"
+    },
+    {
+      "id": "D03",
+      "drive_file_id": "1I3rtVmuEN1JKDmz1-5YiopxujaQWgbBbZy_NEX_kJn0",
+      "title": "💥 Perfect",
+      "modified_time": "2025-06-05T10:15:12.213Z",
+      "text_characters": 10084,
+      "source_url": "https://docs.google.com/document/d/1I3rtVmuEN1JKDmz1-5YiopxujaQWgbBbZy_NEX_kJn0",
+      "scope": "native text fetched; relevant sections inspected"
+    },
+    {
+      "id": "D04",
+      "drive_file_id": "1WASF0CAu0pN8TSnArtnMH7pSGteBhUDWvQE_PQdonUA",
+      "title": "📚",
+      "modified_time": "2025-06-05T10:14:51.814Z",
+      "text_characters": 4067,
+      "source_url": "https://docs.google.com/document/d/1WASF0CAu0pN8TSnArtnMH7pSGteBhUDWvQE_PQdonUA",
+      "scope": "native text fetched; relevant sections inspected"
+    },
+    {
+      "id": "D05",
+      "drive_file_id": "10_g-T8A8Zl-Y7kWFGApPL6KLQ242a0HEjFNroeMzwSs",
+      "title": "Fbtb",
+      "modified_time": "2025-06-05T10:15:57.370Z",
+      "text_characters": 12137,
+      "scope": "private source excluded from public reproduction"
+    }
+  ]
+}

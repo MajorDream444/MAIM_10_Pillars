@@ -103,3 +103,11 @@ Observability: versioned role/skill registry, Git commits and validation receipt
 Data/PII: public collection metadata and editorial instructions -> Skills Git workspace and repository. No private founder interviews, customer records, child disclosures, credentials or uploaded third-party full text included. Future private intake stays outside public Git. No new external processor/API integration or account permissions created.
 
 Decision: instruction/configuration delivery only. Manuscript publication, print certification and commercial release remain separate and blocked until their actual evidence is available. No deployment or checkout activation authorized.
+
+## 2026-10-26 Drive/archive recovery addendum
+
+Scope: read-only recovery of five native Drive documents, two production writing-folder listings and six supplied attachments. Source metadata, page/section references and editorial findings committed; no private corpus or sensitive autobiographical prompts republished. Original files, sharing and organization unchanged. No source manuscript replacement, deployment, checkout or runtime changes.
+
+Tests: six attachment hashes and four physical PDF page counts recorded; P01 source boundaries and incomplete Legacy export checked; JSON manifest parses. Runtime/E2E tests and new telemetry N/A to this documentation-only change. Existing cover manifest and application paths not modified. Git object readback verifies persistence. Character counts refer to fetched native text, not native binary checksums.
+
+Data: authorized source reads -> transient local extraction -> minimized inventory/findings in public Git. Private raw content remains in original Drive/Library locations; no new processing integration or customer data. Editorial provenance is supplied by immutable commit/source IDs. Release decision: recovery checkpoint only; publication/commercial release remains HOLD.
