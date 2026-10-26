@@ -1,3 +1,5 @@
+> **Founder accepted the manuscript for production preparation, 26 October 2026.** [Production package](../../production/pillar_01/README.md): narration script, audition text, companion workbook, chapter quizzes and manifest. Earlier founder-review-pending statuses are historical for manuscript v0.2. New derivatives and final formats are not yet approved for release.
+
 > **Complete first draft, 26 October 2026:** [Diaspora Empowerment v0.2](../../manuscripts/MAIM_P01_Diaspora_Empowerment_v0.2.md) now contains all six chapters, exercises, Major Moves and credited influences (approximately 6,631 words including notes). Read the [v0.2 editorial receipt](p01_v0_2_editorial_receipt.md) for passage lineage and next steps. Earlier opening-only statements below are historical. Next stage: founder voice review and copyedit, then production formatting; no approved release is asserted.
 
 # Pillar 01 editorial checkpoint — Diaspora Empowerment

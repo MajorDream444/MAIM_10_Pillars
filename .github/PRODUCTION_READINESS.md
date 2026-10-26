@@ -144,3 +144,10 @@ Runtime tests/telemetry N/A to a private editorial intake/metadata receipt. Exis
 Scope: editorial-only v0.2 manuscript, receipt, continuation pointer and manuscript index. All six substantive chapters written, approximately 6,631 words including notes. Six exercises, six Major Moves, four source notes, UTF-8/no trailing whitespace and absence of TODO/outline-only markers checked. Source-derived historical passages bounded and credited; hypothetical example explicitly labelled. Self-review recorded in books/editorial/pillar_01/p01_v0_2_editorial_receipt.md.
 
 Tests: prose structure/source-linkage checks applicable; software tests N/A because no runtime behavior changed. Observability: N/A, no production paths or processing added. Data/PII: no raw transcript, private family detail, contacts or private corpus committed; edited founder account used under current book-writing instruction. Only manuscript/editorial documentation changed; all cover, code, configuration, checkout and deployment paths retained from base. No external publication or release action. Commercial readiness not changed. Founder approval, copyedit and formatted-output QA remain before release.
+
+
+## 26 October 2026 — P01 production preparation after founder acceptance
+
+Founder accepted v0.2 manuscript for next-stage preparation. Added editable narration (six chapters), opening sample script, workbook (six sections), quizzes (18 questions with 18 explanations), manifest and continuation README. Source equality against current GitHub version checked; all counts checked. Source checksum and derivative checksums recorded. Original manuscript and cover files unchanged.
+
+Tests: editorial structure/source consistency checks passed. Software behavior tests N/A: documentation/content only. Observability N/A: no runtime paths. Data/PII: only edited approved-source content and synthetic learning situations; no raw voice media, private provider IDs, credentials or sensitive contacts. No audio generation or external upload occurred. New derivatives are production drafts; no formatted/accessible release claim. No checkout or deployment changes.

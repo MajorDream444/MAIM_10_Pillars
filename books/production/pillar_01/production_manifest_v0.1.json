@@ -1,0 +1,45 @@
+{
+  "title": "Diaspora Empowerment",
+  "collection": "ten-pillars",
+  "book_id": "P01",
+  "author": "Major Dream Williams",
+  "language": "en",
+  "source_version": "v0.2",
+  "source_sha256": "80d0f67511b3c1a5e53e6b156aa10b71b6a814b4e14b5274f958340f1dbe718f",
+  "founder_manuscript_approval": {
+    "date": "2026-10-26",
+    "basis": "Founder says manuscript is fire and authorizes proceeding to next stage",
+    "scope": "Manuscript v0.2 accepted for production preparation; not final release or approval of new derivatives"
+  },
+  "status": "production_preparation",
+  "isbn": null,
+  "cover": "Preserve existing approved P01 cover; unchanged",
+  "audio_status": "Scripts prepared; no audio generated in this checkpoint",
+  "voice_status": "Existing HeyGen voices recovered; earlier robotic-quality concern retained; no new cloning authorized by this record",
+  "localization_status": "Global editions planned; target languages not selected; no translations produced",
+  "rights_review": "MAIM source lineage and third-party paraphrase credits in v0.2 receipt; no blanket rights certification",
+  "formats": {
+    "markdown": "prepared",
+    "pdf": "not rendered",
+    "epub": "not built",
+    "audio": "not generated"
+  },
+  "files": [
+    {
+      "path": "chapter_quizzes_v0.1.md",
+      "sha256": "8ab64c544586d989eb9612f43ee1827f11d62ea964d710c23cd7b8b3d133a53a"
+    },
+    {
+      "path": "companion_workbook_v0.1.md",
+      "sha256": "1b051375d531fc7b8fd24e4e3fe6998fc929a5e91cb90b0d1be3b3b3eda5fd5f"
+    },
+    {
+      "path": "narration_sample_script_v0.1.txt",
+      "sha256": "b304cf99c6383e539ed2d938b508c4007cb2318c8cbb2d0dd05cd93164bf61b7"
+    },
+    {
+      "path": "narration_script_v0.1.md",
+      "sha256": "bef3127d7401ca244b5efdf5dae0f5e675b4f298bd20f6a2d1335054d896d6c4"
+    }
+  ]
+}
