@@ -1,3 +1,5 @@
+[![Edit on Hanzo](https://hanzo.ai/badges/edit-on-hanzo.svg)](https://hanzo.app/dev?repo=https%3A%2F%2Fgithub.com%2FMajorDream444%2FMAIM_10_Pillars)
+
 # 🌊 M.A.I.M. — The 10 Pillars of the Major AI Mindset
 
 > *"The world is not ready. But we are."* — Major Dream Williams
