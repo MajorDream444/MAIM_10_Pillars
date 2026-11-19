@@ -103,3 +103,12 @@ Observability: versioned role/skill registry, Git commits and validation receipt
 Data/PII: public collection metadata and editorial instructions -> Skills Git workspace and repository. No private founder interviews, customer records, child disclosures, credentials or uploaded third-party full text included. Future private intake stays outside public Git. No new external processor/API integration or account permissions created.
 
 Decision: instruction/configuration delivery only. Manuscript publication, print certification and commercial release remain separate and blocked until their actual evidence is available. No deployment or checkout activation authorized.
+
+
+## 2026-11-19 Hanzo README badge — scoped evidence
+
+Scope: README-only external badge and repository-specific editor link; no application code or deployment configuration changed.
+- Tests: badge Markdown and encoded repository target checked; existing README preserved. Runtime, failure-path and E2E tests are not applicable because executable behavior is unchanged.
+- Observability: Git commit records this documentation change. New production logs, metrics and alerts are not applicable; no production path added.
+- Data/PII: public badge SVG is served through GitHub image handling. Clicking the editor link sends the public repository URL to Hanzo; no credentials, customer data, API calls, authorization changes or automated import added. Any later workspace creation requires the visitor's action and Hanzo account policies.
+- Decision: documentation-only update; this does not certify or change product production readiness, deployment or commercial approval.
